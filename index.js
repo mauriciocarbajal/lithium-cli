@@ -1,19 +1,31 @@
-var midi = require('midi');
+const readline = require('readline');
+const midi = require('midi');
 
-// Set up a new output.
 var output = new midi.output();
-
-// Count the available output ports.
 output.getPortCount();
-
-// Get the name of a specified output port.
 output.getPortName(0);
-
-// Open the first available output port.
 output.openPort(0);
 
-// Send a MIDI message.
-output.sendMessage([176,22,1]);
+readline.emitKeypressEvents(process.stdin);
 
-// Close the port when done.
-output.closePort();
+process.stdin.setRawMode(true);
+
+process.stdin.on('keypress', (str, key) => {
+  if (key.ctrl && key.name === 'c') {
+    process.exit();
+    // Close the port when done.
+    output.closePort();
+  } else {
+    console.log(`You pressed the "${str}" key`);
+    console.log();
+    console.log(key);
+    console.log();
+    // Send a MIDI message.
+    output.sendMessage([176,22,1]);
+  }
+});
+console.log('Press any key...');
+
+
+
+
