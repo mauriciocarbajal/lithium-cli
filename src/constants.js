@@ -39,3 +39,8 @@ const SET_VELOCITY_HARD_MODE = 'k';
 // Modifiers
 const KEY_MODIFIER_1 = 'shift';   // switches to relative V7 of chord
 const KEY_MODIFIER_2 = 'ctrl';   // switches to relative IIm of chord
+
+
+// IDEA: chrome extension for parsing chords from the internet into keyboard letters
+// User is able to play song chords easily using the keyboard, and singalong!
+
