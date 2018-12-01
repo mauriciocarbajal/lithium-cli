@@ -2,25 +2,6 @@ const readline = require('readline');
 const easymidi = require('easymidi');
 
 const { diatonicChords, secDomChords } = require('./src/chords');
-const constants = require('./src/constants');
-
-console.log('constants', constants)
-
-const playChord = (output, notes = []) => {
-  notes.forEach((note) => {
-    output.send('noteon', {
-      note: note,
-      velocity: 127,
-      channel: 3
-    });
-  });
-}
-
-let currentKey = 64
-console.log('Key: C major')
-
-let chords_C = diatonicChords(currentKey)
-let domSecChords_C = secDomChords(currentKey)
 
 // Keys layout
 const KEY_I = 'a';
@@ -33,60 +14,89 @@ const KEY_V = 'g';
 const KEY_VI = 'h';
 const KEY_VII = 'j';
 
+let currentKey = 64
+console.log('Key: C major')
+
+let chords_C = diatonicChords(currentKey)
+let domSecChords_C = secDomChords(currentKey)
+
+const releasePedal = (output) => {
+  for (let i = 20; i < 90; i = i + 1) {
+    output.send('noteoff', {
+      note: i,
+      velocity: 0,
+      channel: 0
+    });
+
+    output.send('reset')
+  }
+};
+
+const playChord = (output, notes = []) => {
+  releasePedal(output)
+  notes.forEach((note) => {
+    output.send('noteon', {
+      note: note,
+      velocity: 127,
+      channel: 0
+    });
+  });
+}
+
 const processKeyPress = (keyName, keyControl, keyShift) => {
   switch(keyName) { 
     case KEY_I: {
       console.log(`${ keyShift ? 'V7 -> I' : 'I'}`)
-      const chord = keyShift ? domSecChords_C.ionian : chords_C.ionian;
-      playChord(output, chord); 
+      const definedChord = keyShift ? domSecChords_C.ionian : chords_C.ionian;
+      playChord(output, definedChord);
       break; 
     }
     case KEY_II: {
       console.log(`${ keyShift ? 'V7 -> IIm' : 'IIm'}`)
-      const chord = keyShift ? domSecChords_C.dorian : chords_C.dorian;
-      playChord(output, chord); 
+      const definedChord = keyShift ? domSecChords_C.dorian : chords_C.dorian;
+      playChord(output, definedChord);
       break; 
     }
     case KEY_IImb5: {
       console.log(`${ keyShift ? 'V7 -> IIm' : 'IIm'}`)
-      const chord = keyShift ? domSecChords_C.dorian : chords_C.dorianb5;
-      playChord(output, chord); 
+      const definedChord = keyShift ? domSecChords_C.dorian : chords_C.dorianb5;
+      playChord(output, definedChord);
       break; 
     }
     case KEY_III: {
       console.log(`${ keyShift ? 'V7 -> IIIm' : 'IIIm'}`)
-      const chord = keyShift ? domSecChords_C.phrygian : chords_C.phrygian;
-      playChord(output, chord); 
+      const definedChord = keyShift ? domSecChords_C.phrygian : chords_C.phrygian;
+      playChord(output, definedChord);
       break; 
     }
     case KEY_IV: {
       console.log(`${ keyShift ? 'V7 -> IV' : 'IV'}`)
-      const chord = keyShift ? domSecChords_C.lydian : chords_C.lydian;
-      playChord(output, chord); 
+      const definedChord = keyShift ? domSecChords_C.lydian : chords_C.lydian;
+      playChord(output, definedChord);
       break; 
     }
     case KEY_IVm: {
       console.log(`${ keyShift ? 'V7 -> IV' : 'IVm'}`)
-      const chord = keyShift ? domSecChords_C.lydian : chords_C.lydianminor;
-      playChord(output, chord); 
+      const definedChord = keyShift ? domSecChords_C.lydian : chords_C.lydianminor;
+      playChord(output, definedChord);
       break; 
     }
     case KEY_V: {
       console.log(`${ keyShift ? 'V7 -> V7' : 'V7'}`)
-      const chord = keyShift ? domSecChords_C.mixolydian : chords_C.mixolydian;
-      playChord(output, chord); 
+      const definedChord = keyShift ? domSecChords_C.mixolydian : chords_C.mixolydian;
+      playChord(output, definedChord);
       break; 
     }
     case KEY_VI: {
       console.log(`${ keyShift ? 'V7 -> VIm' : 'VIm'}`)
-      const chord = keyShift ? domSecChords_C.eolian : chords_C.eolian;
-      playChord(output, chord); 
+      const definedChord = keyShift ? domSecChords_C.eolian : chords_C.eolian;
+      playChord(output, definedChord);
       break; 
     }
     case KEY_VII: {
       console.log(`${ keyShift ? 'VIImb5' : 'VIImb5'}`)
-      const chord = keyShift ? domSecChords_C.locrian : chords_C.locrian;
-      playChord(output, chord); 
+      const definedChord = keyShift ? domSecChords_C.locrian : chords_C.locrian;
+      playChord(output, definedChord);
       break; 
     }
     case 'up': {
@@ -102,7 +112,12 @@ const processKeyPress = (keyName, keyControl, keyShift) => {
       chords_C = diatonicChords(currentKey)
       domSecChords_C = secDomChords(currentKey)
       break; 
-    } 
+    }
+    case 'space': {
+      console.log('send reset...')
+      releasePedal(output);
+      break; 
+    }
     default: { 
        break; 
     } 
@@ -120,7 +135,7 @@ process.stdin.on('keypress', (str, key) => {
     output.close();
     process.exit();
   } else {
-    const c = processKeyPress(key.name, key.ctrl, key.shift)
+    processKeyPress(key.name, key.ctrl, key.shift)
   }
 });
 
