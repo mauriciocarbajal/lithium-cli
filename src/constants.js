@@ -32,9 +32,9 @@ const SET_HARMONIC_SCALE_MODE = 'n';
 const SET_MELODIC_SCALE_MODE = 'm';
 
 // Modes
-const SET_VELOCITY_HARD_MODE = 'h';
-const SET_VELOCITY_HARD_MODE = 'j';
-const SET_VELOCITY_HARD_MODE = 'k';
+const SET_VELOCITY_1_MODE = 'h';
+const SET_VELOCITY_2_MODE = 'j';
+const SET_VELOCITY_3_MODE = 'k';
 
 // Modifiers
 const KEY_MODIFIER_1 = 'shift';   // switches to relative V7 of chord
