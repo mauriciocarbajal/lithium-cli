@@ -24,28 +24,34 @@ node index.js
 Ok, a nice start would be to know what greek modes are. Ok, not happening.
 
 So quick things to be aware of:
-`I IIm IIIm IV V7 VIm VIIØ` are the diatonic chords of a scale (which are mapped to keys `A S D F G H J`)
+`I IIm IIIm IV V7 VIm VIIØ` are the diatonic chords of a scale.
 
 For instance, C major: `C Dm Em F G7 Am BØ`
 
-Many popular songs never go outside their key, and what's more.. they don't even use all seven chords. For instance, take "Let it be"
+This chords are mapped to keys `A S D F G H J`, with barely decent voicings (I'm not a piano player)
+
+The thing is, many popular songs never go outside their key. What's more, they don't even use all seven chords.
+
+Take "Let it be"
 
 ```
 C G Am F
 C G F C
 ```
 
-So you would play
+So you would simply play.
 ```
 a g h f
 a g f a
 ```
 
-If you are familiarized with things like IIm-V7-I, you will find this key mapping not random at all.
+Keep in mind that you must think of I, IV and V and not think of "How do I play a D chord"
+
+If you are familiarized with things like `IIm-V7-I`, you will find this key mapping not random at all.
 
 ## Secondary dominants and more...
 
-But ok, you know what a IIm-V7-I and you want to play more complex songs.
+But ok, you know what a `IIm-V7-I` and you want to play more complex songs.
 
 Secondary dominants are a cornerstone of popular music and jazz of the 20th century, Wikipedia says.
 
@@ -84,7 +90,7 @@ f r d S
 s g a
 ```
 
-This seemingly awful interface will help you to think chords not as just a chord, but as a function inside a tonality.
+This seemingly awful user interface will help you to think chords not as just a chord, but as a function inside a tonality.
 
 So yes, it's amazing that you play shift G for a D7, since D7 and Dm are very different conceptually.
 
