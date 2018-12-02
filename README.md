@@ -21,31 +21,29 @@ node index.js
 
 ## How do I use it?
 
-Ok, a nice start would be to know what greek modes are. Ok, not happening.
+Before, some basic theory:
+`I IIm IIIm IV V7 VIm VIIØ` are the diatonic chords of a major scale.
 
-So quick things to be aware of:
-`I IIm IIIm IV V7 VIm VIIØ` are the diatonic chords of a scale.
+For instance, chords for C major scale: `C Dm Em F G7 Am BØ`
 
-For instance, C major: `C Dm Em F G7 Am BØ`
+This chords are mapped to keys `a s d f g h j`, with basic voices movement (I'm not a piano player)
 
-This chords are mapped to keys `A S D F G H J`, with barely decent voicings (I'm not a piano player)
+Many popular songs never go outside their key. What's more, they don't even use all seven chords.
 
-The thing is, many popular songs never go outside their key. What's more, they don't even use all seven chords.
-
-Take "Let it be"
+Take "Let it be":
 
 ```
 C G Am F
 C G F C
 ```
 
-So you would simply play.
+So run keys-harmony in your terminal and simply play:
 ```
 a g h f
 a g f a
 ```
 
-Keep in mind that you must think of I, IV and V and not think of "How do I play a D chord"
+Keep in mind that you must think of I, IV and V and not think of "How do I play a D chord", this is a good exercise.
 
 If you are familiarized with things like `IIm-V7-I`, you will find this key mapping not random at all.
 
@@ -55,7 +53,7 @@ But ok, you know what a `IIm-V7-I` and you want to play more complex songs.
 
 Secondary dominants are a cornerstone of popular music and jazz of the 20th century, Wikipedia says.
 
-So you must know them! Take a song like "All of me"
+So you must know them! Take "All of me" as example:
 
 ```
 C [E7] [A7] Dm
@@ -65,11 +63,11 @@ F [[Fm]] Em [A7]
 Dm G C
 ```
 
-Chords between brackets are secondary dominants which will resolve to a diatonic chord (the seven listed above)
+Chords between brackets are secondary dominants which will resolve to a diatonic chord.
 
 To play this chords, simply press shift key and his secondary dominant will be played instead of the diatonic chord.
 
-To be clear, if tonality is C:
+For instance, if tonality is C:
 ```
 s => Dm major chord
 S => A7 chord
@@ -92,7 +90,7 @@ s g a
 
 This seemingly awful user interface will help you to think chords not as just a chord, but as a function inside a tonality.
 
-So yes, it's amazing that you play shift G for a D7, since D7 and Dm are very different conceptually.
+In other words, before playing a song you must analyze its chords and their function.
 
 That's all for now :)
 
