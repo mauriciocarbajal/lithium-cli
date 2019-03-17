@@ -1,7 +1,16 @@
 const readline = require('readline');
 const easymidi = require('easymidi');
+const Leap = require('leapjs');
 
 const { diatonicChords, secDomChords } = require('./src/chords');
+
+Leap.loop(function(frame){
+  if (frame.hands.length === 2) {
+    const { hands: [ left, right ] } = frame
+    console.log('left', left)
+    console.log('right', right)
+  }
+});
 
 // Keys layout
 const KEY_I = 'a';
