@@ -1,4 +1,4 @@
-# keys-harmony
+# sharp♭ar
 
 This mini project consist of a virtual MIDI instrument with CLI interface, developed in nodejs.
 
