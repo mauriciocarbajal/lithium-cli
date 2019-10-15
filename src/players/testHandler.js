@@ -7,16 +7,25 @@ const {
 } = require('../instrument');
 
 startInstrument();
+releasePedal();
 
-for(let t = 1; t < 8; t = t + 1) {
-  setTimeout(() => {
-    const table = getChords();
-    
-    playChord(table.chords[t]);  
-  }, t * 500);
+const MAX_ITERATIONS = 64 + 1;
+
+for(let t = 0; t < MAX_ITERATIONS; t = t + 1) {
+  if (t % 8 === 0) {
+    setTimeout(() => {
+      releasePedal();
+    }, t * 500);
+  } else {
+    setTimeout(() => {
+      const table = getChords();
+      
+      playChord(table.chords[t % 8]);  
+    }, t * 500);
+  }
 }
 
 setTimeout(() => {
   releasePedal();
   closeInstrument();
-}, 6000);
+}, MAX_ITERATIONS * 1000);
