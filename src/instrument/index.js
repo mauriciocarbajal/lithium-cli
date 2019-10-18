@@ -8,13 +8,24 @@
  */
 
 const easymidi = require('easymidi');
-const { diatonicChords, secDomChords } = require('../utils/chords');
+
+const {
+  diatonicChords,
+  secDomChords,
+} = require('./chords');
+
+const {
+  invert,
+  addTension,
+ } = require('./alter');
+
 const DEFAULT_CURRENT_KEY = 64;
 
 var midiOutput;
 
 const startInstrument = () => {
   midiOutput = new easymidi.Output('keys-harmony-output', true);
+  releasePedal();
 }
 
 const getChords = (currentKey = DEFAULT_CURRENT_KEY) => {
@@ -36,7 +47,12 @@ const releasePedal = () => {
   }
 };
 
-const playChord = (notes = []) => {
+
+let currentKey = DEFAULT_CURRENT_KEY;
+let table = getChords(currentKey);
+
+const playChord = (grade, shift = false) => {
+  const notes = shift ? table.secDomChords[grade] : table.chords[grade]
   releasePedal(midiOutput)
   notes.forEach((note) => {
     midiOutput.send('noteon', {
@@ -51,10 +67,16 @@ const closeInstrument = () => {
   midiOutput.close();
 }
 
+const moveTonality = (n) => {
+  currentKey = currentKey + n;
+  table = getChords(currentKey);
+}
+
 module.exports = {
   startInstrument,
   getChords,
   playChord,
   releasePedal,
   closeInstrument,
+  moveTonality,
 }
