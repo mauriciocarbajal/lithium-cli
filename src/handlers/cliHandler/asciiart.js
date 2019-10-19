@@ -1,5 +1,5 @@
 const figlet = require('figlet');
-const { showInstructions } = require('./instructions');
+const { showInstructions, highlight } = require('./instructions');
 const { showSpaces } = require('./utils');
 
 
@@ -35,18 +35,16 @@ const printCallback = (err, data) => {
   clearScreen();
   printHUD();
   showSpaces(3);
-  console.log('\x1b[33m');
-  console.log(data);
-  console.log('\x1b[0m');
+  console.log(highlight(data));
   showSpaces(3);
   showInstructions();
 }
 
 const printScreen = (text) => {
-  figlet.text(text, {
+  figlet.text(`   ${text}`, {
     font: FONT,
-    horizontalLayout: 'default',
-    verticalLayout: 'default',
+    horizontalLayout: 'full',
+    verticalLayout: 'full',
     kerning: 'fitted',
   }, printCallback);
 }

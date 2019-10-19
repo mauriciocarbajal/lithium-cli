@@ -56,14 +56,14 @@ const mappings = (key) => {
         secDom: key.shift,
       }
     }
-    case 'up': {
+    case 'p': {
       return {
         text: 'up',
         secDom: key.shift,
         semitone: 1,
       }
     }
-    case 'down': {
+    case 'l': {
       return {
         text: 'down',
         secDom: key.shift,
@@ -79,9 +79,9 @@ const mappings = (key) => {
     }
     default: { 
       return {
-        text: 'release',
+        text: ' = ) ',
         secDom: key.shift,
-        release: true,
+        release: false,
       };
     }
   }
