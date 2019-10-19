@@ -8,7 +8,8 @@
 
 const readline = require('readline');
 const { showInstructions } = require('./instructions');
-const { printChord, clearScreen } = require('./asciiart');
+const { printScreen, clearScreen } = require('./asciiart');
+const { mappings } = require('./mappings');
 const {
   startInstrument,
   playChord,
@@ -30,66 +31,20 @@ process.stdin.on('keypress', (str, key) => {
     closeInstrument();
     process.exit();
   } else {
-    console.log('key', key)
-    switch(key.name) {
-      case 'a': {
-        printChord(`${ key.shift ? 'V7 -> I' : 'I'}`)
-        playChord(1, key.shift);
-        break; 
-      }
-      case 's': {
-        printChord(`${ key.shift ? 'V7 -> IIm' : 'IIm'}`)
-        playChord(2, key.shift);
-        break; 
-      }
-      case 'd': {
-        printChord(`${ key.shift ? 'V7 -> IIIm' : 'IIIm'}`)
-        playChord(3, key.shift);
-        break; 
-      }
-      case 'f': {
-        printChord(`${ key.shift ? 'V7 -> IV' : 'IV'}`)
-        playChord(4, key.shift);
-        break; 
-      }
-      case 'g': {
-        printChord(`${ key.shift ? 'V7 -> V7' : 'V7'}`)
-        playChord(5, key.shift);
-        break; 
-      }
-      case 'h': {
-        printChord(`${ key.shift ? 'V7 -> VI' : 'VIm'}`)
-        playChord(6, key.shift);
-        break; 
-      }
-      case 'j': {
-        printChord(`${ key.shift ? 'V7 -> VII' : 'VIIø'}`)
-        playChord(7, key.shift);
-        break; 
-      }
-      case 'k': {
-        printChord(`${ key.shift ? 'V7 -> I' : 'I'}`)
-        playChord(1, key.shift);
-        break; 
-      }
-      case 'up': {
-        printChord('semitone up');
-        moveTonality(1);
-        break; 
-      }
-      case 'down': {
-        printChord('semitone down');
-        moveTonality(-1);
-        break; 
-      }
-      case 'space': {
-        printChord('release...');
-        releasePedal();
-        break; 
-      }
-      default: { 
-         break; 
-      } 
+    const mappedThing = mappings(key);
+    printScreen(mappedThing.text);
+
+    if (mappedThing.grade) {
+      // A chord...
+      playChord(mappedThing.grade, mappedThing.secDom);
+
+    } else if (mappedThing.semitone) {
+      // Semitone up/down...
+      moveTonality(mappedThing.semitone);
+
+    } else if (mappedThing.release) {
+      // Release pedal...
+      releasePedal();
     }
   }
 });
