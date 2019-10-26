@@ -28,9 +28,9 @@ const diatonicChords = (note) => ({
     ],
     mixolydian: [
         note - 5 - 12,
+        note - 5 + 12,
         note - 1,
         note + 2,
-        note + 5,
     ],
     eolian: [
         note - 15 - 12,

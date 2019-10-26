@@ -19,7 +19,12 @@ const {
   addTension,
  } = require('./alter');
 
-const DEFAULT_CURRENT_KEY = 64;
+ const {
+  tonalityName,
+  getChordName,
+ } = require('./utils')
+
+const DEFAULT_CURRENT_KEY = 60;
 const CHANNEL = 1;
 
 var midiOutput;
@@ -36,24 +41,46 @@ const getChords = (currentKey = DEFAULT_CURRENT_KEY) => {
   }
 }
 
-const releasePedal = () => {
-  for (let i = 20; i < 90; i = i + 1) {
-    midiOutput.send('noteoff', {
-      note: i,
-      velocity: 0,
-      channel: CHANNEL,
-    });
-
-    midiOutput.send('reset')
-  }
-};
-
-
 let currentKey = DEFAULT_CURRENT_KEY;
 let table = getChords(currentKey);
 
-const playChord = (grade, shift = false) => {
-  const notes = shift ? table.secDomChords[grade] : table.chords[grade]
+const getCurrentTonality = () => {
+  return tonalityName(currentKey % 12)
+}
+
+const playChord = (grade, secDom, subMin) => {
+  let notes;
+  let currentTable = table;
+  let newGrade = grade;
+  let chordKey = currentKey;
+  let chordLabel;
+
+  if (subMin) {
+    // Sub min tonality chord
+    chordKey = currentKey + 3;
+    currentTable = getChords(chordKey);
+    newGrade = ((grade + 4) % 7) + 1;
+  }
+  
+  if (secDom) {
+    // Secondary dominant chord
+    notes = currentTable.secDomChords[newGrade];
+
+    // chordLabel... it's complicated...
+    if (newGrade == 1) chordLabel = getChordName(tonalityName(chordKey % 12), 5);
+    if (newGrade == 2) chordLabel = getChordName(tonalityName((chordKey+2) % 12), 5);
+    if (newGrade == 3) chordLabel = getChordName(tonalityName((chordKey+4) % 12), 5);
+    if (newGrade == 4) chordLabel = getChordName(tonalityName((chordKey+5) % 12), 5);
+    if (newGrade == 5) chordLabel = getChordName(tonalityName((chordKey+7) % 12), 5);
+    if (newGrade == 6) chordLabel = getChordName(tonalityName((chordKey+9) % 12), 5);
+    if (newGrade == 7) chordLabel = getChordName(tonalityName((chordKey+11) % 12), 5);
+
+  } else {
+    // Diatonic chord
+    notes = currentTable.chords[newGrade];
+    chordLabel = getChordName(tonalityName(chordKey % 12), newGrade);
+  }
+
   releasePedal(midiOutput)
   notes.forEach((note) => {
     midiOutput.send('noteon', {
@@ -62,10 +89,8 @@ const playChord = (grade, shift = false) => {
       channel: CHANNEL,
     });
   });
-}
 
-const closeInstrument = () => {
-  midiOutput.close();
+  return chordLabel;
 }
 
 const moveTonality = (n) => {
@@ -88,10 +113,28 @@ const sendPitchChange = (value) => {
   })
 }
 
+const releasePedal = () => {
+  for (let i = 20; i < 90; i = i + 1) {
+    midiOutput.send('noteoff', {
+      note: i,
+      velocity: 0,
+      channel: CHANNEL,
+    });
+
+    midiOutput.send('reset')
+  }
+};
+
+const closeInstrument = () => {
+  midiOutput.close();
+}
+
+
 module.exports = {
   startInstrument,
   getChords,
   instrumentFeatures: {
+    getCurrentTonality,
     playChord,
     sendControlChange,
     sendPitchChange,

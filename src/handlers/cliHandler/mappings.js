@@ -1,90 +1,62 @@
-const mappings = (key) => {
-  switch(key.name) {
-    case 'a': {
-      return {
-        text: `${ key.shift ? 'V7 -> I' : 'I'}`,
-        grade: 1,
-        secDom: key.shift,
-      }
-    }
-    case 's': {
-      return {
-        text: `${ key.shift ? 'V7 -> IIm' : 'IIm'}`,
-        grade: 2,
-        secDom: key.shift,
-      }
-    }
-    case 'd': {
-      return {
-        text: `${ key.shift ? 'V7 -> IIIm' : 'IIIm'}`,
-        grade: 3,
-        secDom: key.shift,
-      }
-    }
-    case 'f': {
-      return {
-        text: `${ key.shift ? 'V7 -> IV' : 'IV'}`,
-        grade: 4,
-        secDom: key.shift,
-      }
-    }
-    case 'g': {
-      return {
-        text: `${ key.shift ? 'V7 -> V7' : 'V7'}`,
-        grade: 5,
-        secDom: key.shift,
-      }
-    }
-    case 'h': {
-      return {
-        text: `${ key.shift ? 'V7 -> VI' : 'VIm'}`,
-        grade: 6,
-        secDom: key.shift,
-      }
-    }
-    case 'j': {
-      return {
-        text: `${ key.shift ? 'V7 -> VII' : 'VIIø'}`,
-        grade: 7,
-        secDom: key.shift,
-      }
-    }
-    case 'k': {
-      return {
-        text: `${ key.shift ? 'V7 -> I' : 'I'}`,
-        grade: 1,
-        secDom: key.shift,
-      }
-    }
-    case 'p': {
-      return {
-        text: 'up',
-        secDom: key.shift,
-        semitone: 1,
-      }
-    }
-    case 'l': {
-      return {
-        text: 'down',
-        secDom: key.shift,
-        semitone: -1,
-      }
-    }
-    case 'space': {
-      return {
-        text: 'release',
-        secDom: key.shift,
-        release: true,
-      };
-    }
-    default: { 
-      return {
-        text: ' = ) ',
-        secDom: key.shift,
-        release: false,
-      };
-    }
-  }
+const numbers = {
+  '1': { grade: 1 },
+  '2': { grade: 2 },
+  '3': { grade: 3 },
+  '4': { grade: 4 },
+  '5': { grade: 5 },
+  '6': { grade: 6 },
+  '7': { grade: 7 },
+  '8': { grade: 1 },
 }
+
+const modNumbers = {
+  '!': { grade: 1, secDom: true },
+  '@': { grade: 2, secDom: true },
+  '#': { grade: 3, secDom: true },
+  '$': { grade: 4, secDom: true },
+  '%': { grade: 5, secDom: true },
+  '^': { grade: 6, secDom: true },
+  '&': { grade: 7 },
+  '*': { grade: 1, secDom: true },
+}
+
+const secondRow = {
+  'q': { grade: 1, subMin: true },
+  'w': { grade: 2, subMin: true },
+  'e': { grade: 3, subMin: true },
+  'r': { grade: 4, subMin: true },
+  't': { grade: 5, subMin: true },
+  'y': { grade: 6, subMin: true },
+  'u': { grade: 7, subMin: true },
+  'i': { grade: 1, subMin: true },
+}
+
+const modSecondRow = {
+  'Q': { grade: 1, secDom: true, subMin: true },
+  'W': { grade: 2, secDom: true, subMin: true },
+  'E': { grade: 3, secDom: true, subMin: true },
+  'R': { grade: 4, secDom: true, subMin: true },
+  'T': { grade: 5, secDom: true, subMin: true },
+  'Y': { grade: 6, secDom: true, subMin: true },
+  'U': { grade: 7, subMin: true },
+  'I': { grade: 1, secDom: true, subMin: true },
+}
+
+const extraActions = {
+  'm': { mute: true },
+  'l': { semitone: -1 },
+  'p': { semitone: 1 },
+  '0': { release: true },
+}
+
+const mapping = {
+  ...numbers,
+  ...modNumbers,
+  ...secondRow,
+  ...modSecondRow,
+  ...extraActions,
+}
+
+const mappings = (key) => (mapping[key.sequence] || {})
 
 module.exports = { mappings }
