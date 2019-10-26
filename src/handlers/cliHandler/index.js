@@ -12,11 +12,18 @@ const { printScreen, clearScreen } = require('./asciiart');
 const { mappings } = require('./mappings');
 const {
   startInstrument,
-  playChord,
-  releasePedal,
-  moveTonality,
+  instrumentFeatures,
+  instrumentFeatures: {
+    playChord,
+    releasePedal,
+    moveTonality,
+  },
   closeInstrument,
 } = require('../../instrument');
+
+const { startLeap } = require('../leapHandler/index');
+const { handleInstrument } = require('../leapHandler/handlers');
+startLeap(handleInstrument(instrumentFeatures));
 
 readline.emitKeypressEvents(process.stdin);
 

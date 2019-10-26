@@ -20,6 +20,7 @@ const {
  } = require('./alter');
 
 const DEFAULT_CURRENT_KEY = 64;
+const CHANNEL = 1;
 
 var midiOutput;
 
@@ -40,7 +41,7 @@ const releasePedal = () => {
     midiOutput.send('noteoff', {
       note: i,
       velocity: 0,
-      channel: 0
+      channel: CHANNEL,
     });
 
     midiOutput.send('reset')
@@ -58,7 +59,7 @@ const playChord = (grade, shift = false) => {
     midiOutput.send('noteon', {
       note: note,
       velocity: 64,
-      channel: 0
+      channel: CHANNEL,
     });
   });
 }
@@ -72,11 +73,30 @@ const moveTonality = (n) => {
   table = getChords(currentKey);
 }
 
+const sendControlChange = (value, controller = 7) => {
+  midiOutput.send('cc', {
+    controller,
+    value,
+    channel: CHANNEL,
+  })
+}
+
+const sendPitchChange = (value) => {
+  midiOutput.send('pitch', {
+    value,
+    channel: CHANNEL,
+  })
+}
+
 module.exports = {
   startInstrument,
   getChords,
-  playChord,
-  releasePedal,
+  instrumentFeatures: {
+    playChord,
+    sendControlChange,
+    sendPitchChange,
+    releasePedal,
+    moveTonality,
+  },
   closeInstrument,
-  moveTonality,
 }
