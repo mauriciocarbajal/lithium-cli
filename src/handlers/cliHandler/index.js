@@ -62,10 +62,10 @@ process.stdin.on('keypress', (str, key) => {
 
     if (mappedThing.grade) {
       const { grade, secDom, subMin } = mappedThing;
-      const label = playChord(grade, secDom, subMin);
+      const { label, gradeName } = playChord(grade, secDom, subMin);
       instrumentStatus = {
         key: getCurrentTonality(),
-        grade,
+        grade: gradeName,
         secDom,
         subMin,
       }

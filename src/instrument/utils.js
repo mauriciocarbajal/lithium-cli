@@ -28,13 +28,27 @@ const chordNames = {
   'B': ['B', 'C#m', 'D#m', 'E', 'F#7', 'G#m', 'A#mb5'],
 }
 
+const gradeNames = {
+  1: 'I',
+  2: 'IIm',
+  3: 'IIIm',
+  4: 'IV',
+  5: 'V7',
+  6: 'VIm',
+  7: 'VIIø',
+}
+
+
 const tonalityName = (index) => (tonalityNames[index]);
 
 const getChordName = (tonalityName, grade) => {
   return chordNames[tonalityName] ? chordNames[tonalityName][grade - 1] : '???';
 }
 
+const getGradeName = (grade) => (gradeNames[grade] || '-')
+
 module.exports = {
   tonalityName,
   getChordName,
+  getGradeName,
 }
