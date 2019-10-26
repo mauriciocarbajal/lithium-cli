@@ -1,3 +1,6 @@
+// TODO: use the first inversion always
+// Then if required, create a sample 7 chords using the invert function from utils/alter
+
 const diatonicChords = (note) => ({
     ionian: [
         note - 12 - 12,
