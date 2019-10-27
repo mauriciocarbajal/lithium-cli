@@ -42,11 +42,31 @@ const modSecondRow = {
   'I': { grade: 1, secDom: true, subMin: true },
 }
 
+const singleNotes = {
+  'z': { note: 1 },
+  's': { note: 2 },
+  'x': { note: 3 },
+  'c': { note: 4 },
+  'f': { note: 5 },
+  'v': { note: 6 },
+  'g': { note: 7 },
+  'b': { note: 8 },
+  'n': { note: 9 },
+  'j': { note: 10 },
+  'm': { note: 11 },
+  'k': { note: 12 },
+  ',': { note: 13 },
+  'l': { note: 14 },
+  '.': { note: 15 },
+  '/': { note: 16 },
+}
+
 const extraActions = {
-  'm': { mute: true },
-  'l': { semitone: -1 },
+  'k': { mute: true },
+  'o': { semitone: -1 },
   'p': { semitone: 1 },
   '0': { release: true },
+  'space': { release: true },
 }
 
 const mapping = {
@@ -54,9 +74,10 @@ const mapping = {
   ...modNumbers,
   ...secondRow,
   ...modSecondRow,
+  ...singleNotes,
   ...extraActions,
 }
 
-const mappings = (key) => (mapping[key.sequence] || {})
+const mappings = (key) => (mapping[key.sequence] || mapping[key.name] || {})
 
 module.exports = { mappings }

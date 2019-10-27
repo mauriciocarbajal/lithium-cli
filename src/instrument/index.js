@@ -97,6 +97,14 @@ const playChord = (grade, secDom, subMin) => {
   };
 }
 
+const playSingleNote = (singleNote) => {
+  midiOutput.send('noteon', {
+    note: currentKey + 12 + singleNote,
+    velocity: 64,
+    channel: DEFAULT_CHANNEL,
+  });
+}
+
 const moveTonality = (n) => {
   currentKey = currentKey + n;
   table = getChords(currentKey);
@@ -118,7 +126,7 @@ const sendPitchChange = (value) => {
 }
 
 const releasePedal = () => {
-  for (let i = 20; i < 90; i = i + 1) {
+  for (let i = 20; i < currentKey + 12; i = i + 1) {
     midiOutput.send('noteoff', {
       note: i,
       velocity: 0,
@@ -140,6 +148,7 @@ module.exports = {
   instrumentFeatures: {
     getCurrentTonality,
     playChord,
+    playSingleNote,
     sendControlChange,
     sendPitchChange,
     releasePedal,

@@ -17,6 +17,7 @@ const {
   instrumentFeatures: {
     getCurrentTonality,
     playChord,
+    playSingleNote,
     releasePedal,
     sendControlChange,
     moveTonality,
@@ -31,10 +32,12 @@ const { handleInstrument } = require('../leapHandler/handlers');
 
 
 // Initialize leap loop
+let leapOn = false;
 var myArgs = process.argv.slice(2);
 if (myArgs && myArgs[0] === "leap") {
   console.log('Leap initialized...')
   startLeap(handleInstrument(instrumentFeatures));
+  leapOn = true;
 }
 
 // Initialize CLI interface
@@ -61,6 +64,7 @@ process.stdin.on('keypress', (str, key) => {
     const mappedThing = mappings(key);
 
     if (mappedThing.grade) {
+      // CHORDS
       const { grade, secDom, subMin } = mappedThing;
       const { label, gradeName } = playChord(grade, secDom, subMin);
       instrumentStatus = {
@@ -71,7 +75,22 @@ process.stdin.on('keypress', (str, key) => {
       }
       printScreen(instrumentStatus, label, subMin ? 1 : (secDom ? 2 : 0 ));
 
+    } else if (mappedThing.note) {
+      // NOTE
+      const { secDom, subMin } = instrumentStatus;
+      const index = mappedThing.note;
+      let scale = [0,2,4,5,7,9,11,12,14,16];
+      if (subMin) {
+        scale = [0,2,3,5,7,8,10,12,14,15];
+      }
+
+      const filterMode = false;
+      if (!filterMode || scale.includes(index-1)) {
+        playSingleNote(index-4)
+      }
+
     } else if (mappedThing.semitone) {
+      // TRANSPOSE
       moveTonality(mappedThing.semitone);
       instrumentStatus = {
         ...instrumentStatus,
@@ -80,10 +99,12 @@ process.stdin.on('keypress', (str, key) => {
       printScreen(instrumentStatus, getCurrentTonality(), 3);
 
     } else if (mappedThing.release) {
+      // RELEASE
       releasePedal();
       printScreen(instrumentStatus, "release", 3);
 
-    } else if (mappedThing.mute) {
+    } else if (mappedThing.mute && leapOn) {
+      // MUTE
       sendControlChange(0, CONTROL_VOLUME);
       printScreen(instrumentStatus, "mute", 3);
     }
