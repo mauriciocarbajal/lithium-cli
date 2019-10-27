@@ -82,7 +82,7 @@ const playChord = (grade, secDom, subMin) => {
     label = getChordName(tonalityName(chordKey % 12), newGrade);
   }
 
-  releasePedal(midiOutput)
+  releaseChordsPedal(midiOutput)
   notes.forEach((note) => {
     midiOutput.send('noteon', {
       note: note,
@@ -126,7 +126,7 @@ const sendPitchChange = (value) => {
 }
 
 const releasePedal = () => {
-  for (let i = 20; i < currentKey + 12; i = i + 1) {
+  for (let i = 20; i < 90; i = i + 1) {
     midiOutput.send('noteoff', {
       note: i,
       velocity: 0,
@@ -136,6 +136,18 @@ const releasePedal = () => {
     midiOutput.send('reset')
   }
 };
+
+const releaseChordsPedal = () => {
+  for (let i = 20; i < currentKey + 12; i = i + 1) {
+    midiOutput.send('noteoff', {
+      note: i,
+      velocity: 0,
+      channel: DEFAULT_CHANNEL,
+    });
+
+    midiOutput.send('reset')
+  }
+}
 
 const closeInstrument = () => {
   midiOutput.close();

@@ -67,6 +67,7 @@ const extraActions = {
   'p': { semitone: 1 },
   '0': { release: true },
   'space': { release: true },
+  '-': { pedal: true },
 }
 
 const mapping = {

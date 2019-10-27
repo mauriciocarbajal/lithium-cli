@@ -56,6 +56,8 @@ let instrumentStatus = {
 clearScreen();
 printScreen(instrumentStatus, "NIMETHING", 0);
 
+let pedal = true;
+
 process.stdin.on('keypress', (str, key) => {
   if (key.ctrl && key.name === 'c') {
     closeInstrument();
@@ -86,6 +88,7 @@ process.stdin.on('keypress', (str, key) => {
 
       const filterMode = false;
       if (!filterMode || scale.includes(index-1)) {
+        if (!pedal) releasePedal();
         playSingleNote(index-4)
       }
 
@@ -97,11 +100,15 @@ process.stdin.on('keypress', (str, key) => {
         key: getCurrentTonality(),
       }
       printScreen(instrumentStatus, getCurrentTonality(), 3);
-
     } else if (mappedThing.release) {
       // RELEASE
       releasePedal();
       printScreen(instrumentStatus, "release", 3);
+
+    } else if (mappedThing.pedal) {
+      // RELEASE
+      pedal = !pedal;
+      printScreen(instrumentStatus, `Pedal ${pedal ? 'ON' : 'OFF'}`, 3);
 
     } else if (mappedThing.mute && leapOn) {
       // MUTE
