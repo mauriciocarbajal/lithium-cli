@@ -62,7 +62,7 @@ const singleNotes = {
 }
 
 const extraActions = {
-  'k': { mute: true },
+  '\\': { mute: true },
   'o': { semitone: -1 },
   'p': { semitone: 1 },
   '0': { release: true },
