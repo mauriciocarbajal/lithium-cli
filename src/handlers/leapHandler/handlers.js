@@ -70,7 +70,7 @@ const mapToPitch = (sendPitchChange, value, range) => {
   sendPitchChange(((DETUNE_FACTOR - 1) * 8192 + midiValue) / DETUNE_FACTOR)
 }
 
-const handleInstrument = (instrumentFeatures) => ((hand) => {
+const playModifiers = (instrumentFeatures) => ((hand) => {
   if (hand) {
       const {
           palmPosition,
@@ -90,6 +90,54 @@ const handleInstrument = (instrumentFeatures) => ((hand) => {
   }
 })
 
+let handDetected = false;
+const handleInstrument = (instrumentFeatures) => ((hand) => {
+  if (hand) {
+    // Get hand data
+    const {
+      palmPosition,
+      palmNormal,
+      type: handType,
+    } = hand;
+    const [ x, y, z ] =  palmPosition;
+    
+    const { sendControlChange, playChord, releasePedal } = instrumentFeatures;
+    
+    if (!handDetected) {
+      handDetected = true;
+
+      if (y < 50) {
+        releasePedal();
+      } else if (handType === 'right') {
+        if (Math.round(-palmNormal[0]) === -1) {
+          playChord(1, false, false);
+        } else if (Math.round(-palmNormal[0]) === 0) {
+          playChord(6, false, false);
+        } else if (Math.round(-palmNormal[0]) === 1) {
+          playChord(3, false, false);
+        }
+      } else {
+        if (Math.round(-palmNormal[0]) === -1) {
+          playChord(2, false, false);
+        } else if (Math.round(-palmNormal[0]) === 0) {
+          playChord(4, false, false);
+        } else if (Math.round(-palmNormal[0]) === 1) {
+          playChord(5, false, false);
+        }
+      }
+      
+    }
+
+    mapToControl(sendControlChange, 400 - y, { MIN: 50, MAX: 400}, CONTROL_VOLUME);
+    // mapToPitch(sendPitchChange, -palmNormal[2], { MIN: -1, MAX: 1 });
+
+  } else {
+    handDetected = false;
+    // sendControlChange(0)
+  }
+})
+
 module.exports = {
+  playModifiers,
   handleInstrument,
 }

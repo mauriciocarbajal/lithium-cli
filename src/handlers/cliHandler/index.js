@@ -7,7 +7,6 @@
  */
 
 const readline = require('readline');
-const { showInstructions } = require('./instructions');
 const { printScreen, clearScreen } = require('./asciiart');
 const { mappings } = require('./mappings');
 
@@ -28,7 +27,7 @@ const {
 const { CONTROL_VOLUME } = require('../../instrument/constants')
 
 const { startLeap } = require('../leapHandler/index');
-const { handleInstrument } = require('../leapHandler/handlers');
+const { playModifiers } = require('../leapHandler/handlers');
 
 
 // Initialize leap loop
@@ -36,7 +35,7 @@ let leapOn = false;
 var myArgs = process.argv.slice(2);
 if (myArgs && myArgs[0] === "leap") {
   console.log('Leap initialized...')
-  startLeap(handleInstrument(instrumentFeatures));
+  startLeap(playModifiers(instrumentFeatures));
   leapOn = true;
 }
 
@@ -44,7 +43,6 @@ if (myArgs && myArgs[0] === "leap") {
 readline.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
 
-showInstructions();
 startInstrument();
 
 let instrumentStatus = {
@@ -54,7 +52,7 @@ let instrumentStatus = {
 
 // Splash screen
 clearScreen();
-printScreen(instrumentStatus, "NIMETHING", 0);
+printScreen(instrumentStatus, "Hey!", 3);
 
 let pedal = true;
 

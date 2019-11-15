@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node ./src/handlers/testHandler/index.js",
     "cli": "node ./src/handlers/cliHandler/index.js",
-    "leap": "node ./src/handlers/leapHandler/index.js"
+    "leap": "node ./src/handlers/leapHandler/run.js"
   },
   "author": "",
   "license": "ISC",

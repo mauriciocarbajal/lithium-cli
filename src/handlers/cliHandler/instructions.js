@@ -10,6 +10,12 @@ const defaultColor = "\x1b[0m"
 
 const highlight = (text, color = 0) => {
   switch(color) {
+    case 6:
+        return (`${blue}${text}${defaultColor}`);
+    case 5:
+        return (`${magenta}${text}${defaultColor}`);
+    case 4:
+        return (`${defaultColor}${text}${defaultColor}`);
     case 3:
       return (`${yellow}${text}${defaultColor}`);
     case 2:
@@ -21,17 +27,4 @@ const highlight = (text, color = 0) => {
   }
 }
 
-const showInstructions = () => {
-  console.log('Instructions:')
-  console.log(highlight('1 2 3 4 5 6 7 <- Diatonic chords'));
-  console.log(highlight('q w e r t y u <- Subdominant minor chords', 1));
-  console.log('');
-  console.log(highlight('shift: V7 -> I', 2));
-  console.log('');
-  console.log(highlight('space: release notes', 3));
-  console.log(highlight('p: modulate one semitone up', 3));
-  console.log(highlight('l: modulate one semitone down', 3));
-  console.log(highlight('m: mute', 3));
-}
-
-module.exports = { showInstructions, highlight };
+module.exports = { highlight };
