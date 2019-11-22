@@ -7,46 +7,6 @@ const {
 
  const HEIGHT_THRESHOLD = 50;
 
-// const handState = {
-//   roll: 0,
-//   yaw: 0,
-//   pitch: 0,
-// }
-
-// const detectHandRotation = (current, playChord) => {
-//   const moves = ['roll', 'yaw', 'pitch'];
-//   moves.forEach(move => {
-//     if (!handState[move] && current[move] < 0) {
-//       console.log('<', move);
-//       if (move === 'roll') playChord(5, false);
-
-//     } else if (!handState[move] && current[move] > 0) {
-//       console.log('>', move);
-//       if (move === 'roll') playChord(4, false);
-
-//     } else if (handState[move] && !current[move]) {
-//       console.log('=', move);
-//       if (move === 'roll') playChord(1, false);
-//     }
-//     handState[move] = current[move];
-//   })
-// }
-
-// function logSlider(position) {
-//   // position will be between 0 and 100
-//   var minp = 1;
-//   var maxp = 127;
-
-//   // The result should be between 100 an 10000000
-//   var minv = Math.log(1);
-//   var maxv = Math.log(127);
-
-//   // calculate adjustment factor
-//   var scale = (maxv-minv) / (maxp-minp);
-
-//   return Math.exp(minv + scale*(position-minp));
-// }
-
 const mapToControl = (sendControlChange, value, range, attribute) => {
   const { MIN, MAX } = range;
 
@@ -92,8 +52,9 @@ const playModifiers = (instrumentFeatures) => ((hand) => {
   }
 })
 
-let lastPlayed = '000';
+let lastPlayed = '0000';
 let leftHandAllows = true;
+
 const handleInstrument = (instrumentFeatures) => ((hand) => {
   if (hand) {
     // Get hand data
@@ -108,7 +69,7 @@ const handleInstrument = (instrumentFeatures) => ((hand) => {
 
     let willPlayChord = 0;
     let willPlayMod1 = (Math.round(-palmNormal[2]) === 1);
-    let willPlayMod2 = 0;
+    let willPlayMod2 = (Math.round(-palmNormal[0]) === 1);
     
     if (handType === 'right') {
       if (y < 200) {
@@ -124,37 +85,37 @@ const handleInstrument = (instrumentFeatures) => ((hand) => {
           willPlayChord = 2;
         }
       }
-
-      handDetected = false;
     } else {
       // LEFT HAND
       if (y < HEIGHT_THRESHOLD) {
-        handDetected = false;
         releasePedal();
-        lastPlayed = '000';
+        lastPlayed = '0000';
         leftHandAllows = true;
       } else {
         mapToControl(sendControlChange, y, { MIN: HEIGHT_THRESHOLD, MAX: 400}, CONTROL_VOLUME);
-        leftHandAllows = (Math.round(palmNormal[2]) !== 1);
+        leftHandAllows = (Math.round(palmNormal[2]) !== -1);
+        console.log('LEFT HAND ALLOWS', (Math.round(palmNormal[2]) !== -1), Math.round(palmNormal[2]));
       }
     }
 
-    const willPlay = `${willPlayChord}${Number(willPlayMod1)}${Number(willPlayMod2)}`
+    const willPlay = `${willPlayChord}${Number(willPlayMod1)}${Number(willPlayMod2)}${Number(leftHandAllows)}`
 
-    if ((willPlay !== lastPlayed) && leftHandAllows && willPlayChord) {
+    if ((willPlay !== lastPlayed) && willPlayChord) {
       console.log({
         willPlay,
         lastPlayed,
         leftHandAllows,
       });
 
-      playChord(willPlayChord, willPlayMod1, willPlayMod2);
+      if (leftHandAllows) {
+        playChord(willPlayChord, willPlayMod1, willPlayMod2);
+      }
+      
       lastPlayed = willPlay;
     }
 
   } else {
     const { sendControlChange, releasePedal } = instrumentFeatures;
-    handDetected = false;
     releasePedal();
     sendControlChange(0, CONTROL_VOLUME);
     leftHandAllows = true;
