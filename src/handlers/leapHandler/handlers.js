@@ -3,7 +3,9 @@ const {
   CONTROL_PORTAMENTO,
   CONTROL_VOLUME,
   CONTROL_BALANCE,
- } = require('../../instrument/constants')
+ } = require('../../instrument/constants');
+
+ const HEIGHT_THRESHOLD = 50;
 
 // const handState = {
 //   roll: 0,
@@ -90,7 +92,8 @@ const playModifiers = (instrumentFeatures) => ((hand) => {
   }
 })
 
-let handDetected = false;
+let lastPlayed = '000';
+let leftHandAllows = true;
 const handleInstrument = (instrumentFeatures) => ((hand) => {
   if (hand) {
     // Get hand data
@@ -102,38 +105,59 @@ const handleInstrument = (instrumentFeatures) => ((hand) => {
     const [ x, y, z ] =  palmPosition;
     
     const { sendControlChange, playChord, releasePedal } = instrumentFeatures;
-    
-    if (!handDetected) {
-      handDetected = true;
 
-      if (y < 50) {
-        releasePedal();
-      } else if (handType === 'right') {
-        if (Math.round(-palmNormal[0]) === -1) {
-          playChord(1, false, false);
-        } else if (Math.round(-palmNormal[0]) === 0) {
-          playChord(6, false, false);
-        } else if (Math.round(-palmNormal[0]) === 1) {
-          playChord(3, false, false);
+    let willPlayChord = 0;
+    let willPlayMod1 = (Math.round(-palmNormal[2]) === 1);
+    let willPlayMod2 = 0;
+    
+    if (handType === 'right') {
+      if (y < 200) {
+        if (z > 0) {
+          willPlayChord = 1;
+        } else {
+          willPlayChord = 4;
         }
       } else {
-        if (Math.round(-palmNormal[0]) === -1) {
-          playChord(2, false, false);
-        } else if (Math.round(-palmNormal[0]) === 0) {
-          playChord(4, false, false);
-        } else if (Math.round(-palmNormal[0]) === 1) {
-          playChord(5, false, false);
+        if (z > 0) {
+          willPlayChord = 6;
+        } else {
+          willPlayChord = 2;
         }
       }
-      
+
+      handDetected = false;
+    } else {
+      // LEFT HAND
+      if (y < HEIGHT_THRESHOLD) {
+        handDetected = false;
+        releasePedal();
+        lastPlayed = '000';
+        leftHandAllows = true;
+      } else {
+        mapToControl(sendControlChange, y, { MIN: HEIGHT_THRESHOLD, MAX: 400}, CONTROL_VOLUME);
+        leftHandAllows = (Math.round(palmNormal[2]) !== 1);
+      }
     }
 
-    mapToControl(sendControlChange, 400 - y, { MIN: 50, MAX: 400}, CONTROL_VOLUME);
-    // mapToPitch(sendPitchChange, -palmNormal[2], { MIN: -1, MAX: 1 });
+    const willPlay = `${willPlayChord}${Number(willPlayMod1)}${Number(willPlayMod2)}`
+
+    if ((willPlay !== lastPlayed) && leftHandAllows && willPlayChord) {
+      console.log({
+        willPlay,
+        lastPlayed,
+        leftHandAllows,
+      });
+
+      playChord(willPlayChord, willPlayMod1, willPlayMod2);
+      lastPlayed = willPlay;
+    }
 
   } else {
+    const { sendControlChange, releasePedal } = instrumentFeatures;
     handDetected = false;
-    // sendControlChange(0)
+    releasePedal();
+    sendControlChange(0, CONTROL_VOLUME);
+    leftHandAllows = true;
   }
 })
 
