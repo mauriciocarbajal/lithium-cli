@@ -2,6 +2,8 @@ const figlet = require('figlet');
 const { highlight } = require('./instructions');
 const { showSpaces } = require('./utils');
 
+const DEBUG = false;
+
 const decentFonts = [
   'Doom',
   'Crazy',
@@ -40,6 +42,9 @@ const printHUD = (key = '-', gradeName = '-') => {
 }
 
 const printScreen = async (instrumentStatus, label, color) => {
+  if (DEBUG) {
+    return;
+  }
   clearScreen();
 
   // HUD

@@ -10,6 +10,12 @@ const readline = require('readline');
 const { printScreen, clearScreen } = require('./asciiart');
 const { mappings } = require('./mappings');
 
+
+// LOOP RECORD
+let startingTime = null;
+let endingTime = null;
+let hitsLog = [];
+
 const {
   startInstrument,
   instrumentFeatures,
@@ -21,7 +27,7 @@ const {
     sendControlChange,
     moveTonality,
   },
-  closeInstrument,
+  closeInstrument, 
 } = require('../../instrument');
 
 const { CONTROL_VOLUME } = require('../../instrument/constants')
@@ -56,12 +62,34 @@ printScreen(instrumentStatus, "Hey!", 3);
 
 let pedal = true;
 
-process.stdin.on('keypress', (str, key) => {
+let scheduleLoop = () => {
+  endingTime = new Date().getTime() - startingTime;
+  const empiricalOffset = 100;
+  hitsLog.forEach((hit) => {
+    for(let iter = 0; iter < 5; iter += 1) {
+      setTimeout(() => (keyHandler(hit.str, hit.key, false)), iter * endingTime + hit.time - empiricalOffset);
+    }
+  })
+  hitsLog = [];
+}
+
+const keyHandler = (str, key, record = true) => {
   if (key.ctrl && key.name === 'c') {
     closeInstrument();
     process.exit();
+  } else if (key.ctrl && key.name === 'x') {
+    startingTime = null;
+    endingTime = null;
+    hitsLog = [];
   } else {
     const mappedThing = mappings(key);
+
+    if ((mappedThing.grade || mappedThing.note) && record) {
+      // Record activity
+      const currentTick = new Date().getTime();
+      if (!startingTime) startingTime = currentTick;
+      hitsLog.push({ str, key, time: currentTick - startingTime })
+    }
 
     if (mappedThing.grade) {
       // CHORDS
@@ -101,7 +129,9 @@ process.stdin.on('keypress', (str, key) => {
     } else if (mappedThing.release) {
       // RELEASE
       releasePedal();
-      printScreen(instrumentStatus, "release", 3);
+      //printScreen(instrumentStatus, "release", 3);
+      printScreen(instrumentStatus, "loop", 3);
+      scheduleLoop();
 
     } else if (mappedThing.pedal) {
       // RELEASE
@@ -114,4 +144,6 @@ process.stdin.on('keypress', (str, key) => {
       printScreen(instrumentStatus, "mute", 3);
     }
   }
-});
+}
+
+process.stdin.on('keypress', keyHandler);
