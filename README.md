@@ -111,9 +111,8 @@ There are some rules here, but explore and see how they sound to you. What sound
 ## Thoughts
 This weird user interface will help you to think of chords as a function inside a tonality where they belong to.
 
-Music harmony is simpler than you think. Each particular instrument always add more complexity because of physical restrictions and because life. Much of the time you spend learning a new instrument goes to overcoming those restrictions.
+Music harmony might be simpler than you think. Each particular instrument always add more complexity because of physical restrictions and because life. Much of the time you spend learning a new instrument goes to overcoming those restrictions.
 
-This is a language-learning toy for exploring musical harmony, starting from the very basic `I IV V7 I` progressions. After a while, you will need to move into a specific instrument.
+This is a small tool for exploring harmony, starting from the very basic `I IV V7 I` progressions. You can try some harmonic changes that still might be difficult for you to play in your preferred instrument. Hopefully you can find some new musical ideas, and chase them afterwards.
 
-When that day comes, to exit press `ctrl + c`
-
+Anyway, to exit press `ctrl + c`
