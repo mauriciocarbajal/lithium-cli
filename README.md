@@ -113,6 +113,6 @@ This weird user interface will help you to think of chords as a function inside 
 
 Music harmony might be simpler than you think. Each particular instrument always add more complexity because of physical restrictions and because life. Much of the time you spend learning a new instrument goes to overcoming those restrictions.
 
-This is a small tool for exploring harmony, starting from the very basic `I IV V7 I` progressions. You can try some harmonic changes that still might be difficult for you to play in your preferred instrument. Hopefully you can find some new musical ideas, and chase them afterwards.
+This is a small tool for exploring harmony, starting from the very basic `I IV V7 I` progressions. You can try some harmonic changes that still might be difficult for you to play in your preferred instrument. Hopefully you can find some new musical ideas to chase afterwards.
 
-Anyway, to exit press `ctrl + c`
+To exit press `ctrl + c`
