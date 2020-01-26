@@ -6,11 +6,11 @@ Besides playing voicings-aware chords, you will be able to make your ear familia
 
 ## How do I install it?
 
-FIRST: Open GarageBand, Logic, or any other DAW software where you can plug a MIDI keyboard and play sounds.
+To start, open GarageBand, Logic, or any other DAW software where you can plug a MIDI keyboard and play sounds.
 
-Next, to run boplicity in your machine:
+Next, follow this steps:
 
-1. Install node on your machine. Reference: https://nodejs.org/en/download
+1. Install nodejs on your machine. Reference: https://nodejs.org/en/download
 
 2. Open a terminal and run the next commands to clone this repo in your machine:
 ```
@@ -28,6 +28,8 @@ npm install
 npm run cli
 ```
 
+### Video
+You can see a video here, running boplicity and exploring its basic features:
 
 [![Watch the video](https://i.vimeocdn.com/video/850101961.webp?mw=1800&mh=1125&q=70)](https://vimeo.com/387222224)
 
