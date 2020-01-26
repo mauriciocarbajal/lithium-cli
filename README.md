@@ -16,6 +16,8 @@ npm install
 npm run cli
 ```
 
+[![Watch the video](https://i.vimeocdn.com/video/850101961.webp?mw=1800&mh=1125&q=70)](https://vimeo.com/387222224)
+
 ## How do I use it?
 First, some basic theory: `I IIm IIIm IV V7 VIm VIIØ` are the diatonic chords of a major scale.
 
