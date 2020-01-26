@@ -1,3 +1,4 @@
+# Boplicity 🎵
 This mini project consist of a virtual MIDI instrument with CLI interface, developed in nodejs.
 
 ## What can I do?
@@ -72,7 +73,9 @@ For instance, if tonality were C major:
 ```
 
 ### Modal interchange
-The chord between double brackets is a modal interchange from another minor tonality. You will find (some of) them in the ` q w e r t y u` row.
+The chord between double brackets (the `Fm`) is a modal interchange from another key.
+
+You will find chords you can borrow from the `Im` tonality in the ` q w e r t y u` row.
 
 ```
 q => Cm
@@ -95,7 +98,7 @@ So now you are all set to play "All of me" chords...
 ```
 
 ## Adding melodies
-You can play a melody in the keyboard using the z row and the a row. This is clearly a piano:
+You can play a melody in the keyboard using the z row and the a row. This is clearly a piano 🎹:
 ```
  s   f g   j k l  
 z x c v b n m , . /
