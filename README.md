@@ -123,7 +123,7 @@ The z row has the diatonic scale of the key you're in, so those notes probably g
 There are some rules here, but explore and see how they sound to you. What sounds nice and why?
 
 ## Leap motion support
-There is partial [leap motion] (https://developer.leapmotion.com/) support if you happen to have one.
+There is partial [leap motion](https://developer.leapmotion.com/) support if you happen to have one.
 
 In that case run `npm run leap` instead. I still haven't found a good combination of gestures to match the keyboard, but you can map some of them easily, and also use your hand as a module effect changer (e.g. change volume as if it were a theremin).
 
