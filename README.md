@@ -5,17 +5,29 @@ This mini project consist of a virtual MIDI instrument with CLI interface, devel
 Besides playing voicings-aware chords, you will be able to make your ear familiar with basic music harmony.
 
 ## How do I install it?
-First of all, open GarageBand (or any software that can receive MIDI and play sounds from it)
 
-Then install node on your machine.
+FIRST: Open GarageBand, Logic, or any other DAW software where you can plug a MIDI keyboard and play sounds.
 
-Then just install modules and run the cli mode (leap mode is available if you happen to have a leap motion):
+Next, to run boplicity in your machine:
 
+1. Install node on your machine. Reference: https://nodejs.org/en/download
+
+2. Open a terminal and run the next commands to clone this repo in your machine:
+```
+git clone https://github.com/mauriciocarbajal/boplicity.git
+cd boplicity
+```
+
+3. Install all the required dependencies running this command:
 ```
 npm install
+```
 
+4. To start the application, run the next command and you should see your DAW detect a new input source:
+```
 npm run cli
 ```
+
 
 [![Watch the video](https://i.vimeocdn.com/video/850101961.webp?mw=1800&mh=1125&q=70)](https://vimeo.com/387222224)
 
@@ -107,6 +119,12 @@ z x c v b n m , . /
 The z row has the diatonic scale of the key you're in, so those notes probably go well if you are playing diatonic chords. 
 
 There are some rules here, but explore and see how they sound to you. What sounds nice and why?
+
+## Leap motion support
+There is partial [leap motion] (https://developer.leapmotion.com/) support if you happen to have one.
+
+In that case run `npm run leap` instead. I still haven't found a good combination of gestures to match the keyboard, but you can map some of them easily, and also use your hand as a module effect changer (e.g. change volume as if it were a theremin).
+
 
 ## Thoughts
 This weird user interface will help you to think of chords as a function inside a tonality where they belong to.
