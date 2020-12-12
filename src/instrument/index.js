@@ -126,7 +126,7 @@ const sendPitchChange = (value) => {
 }
 
 const releasePedal = () => {
-  for (let i = 20; i < 90; i = i + 1) {
+  for (let i = 0; i < 128; i = i + 1) {
     midiOutput.send('noteoff', {
       note: i,
       velocity: 0,
@@ -138,7 +138,7 @@ const releasePedal = () => {
 };
 
 const releaseChordsPedal = () => {
-  for (let i = 20; i < currentKey + 12; i = i + 1) {
+  for (let i = 0; i < currentKey + 12; i = i + 1) {
     midiOutput.send('noteoff', {
       note: i,
       velocity: 0,

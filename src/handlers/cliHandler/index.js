@@ -11,11 +11,6 @@ const { printScreen, clearScreen } = require('./asciiart');
 const { mappings } = require('./mappings');
 
 
-// LOOP RECORD
-let startingTime = null;
-let endingTime = null;
-let hitsLog = [];
-
 const {
   startInstrument,
   instrumentFeatures,
@@ -58,41 +53,18 @@ let instrumentStatus = {
 
 // Splash screen
 clearScreen();
-printScreen(instrumentStatus, "Hey!", 3);
+printScreen(instrumentStatus, "Boplicity", 3);
 
 let pedal = true;
 
-let scheduleLoop = () => {
-  endingTime = new Date().getTime() - startingTime;
-  const empiricalOffset = 100;
-  hitsLog.forEach((hit) => {
-    for(let iter = 0; iter < 5; iter += 1) {
-      setTimeout(() => (keyHandler(hit.str, hit.key, false)), iter * endingTime + hit.time - empiricalOffset);
-    }
-  })
-  hitsLog = [];
-}
-
-const keyHandler = (str, key, record = true) => {
+const keyHandler = (str, key) => {
   if (key.ctrl && key.name === 'c') {
     closeInstrument();
     process.exit();
-  } else if (key.ctrl && key.name === 'x') {
-    startingTime = null;
-    endingTime = null;
-    hitsLog = [];
   } else {
     const mappedThing = mappings(key);
-
-    if ((mappedThing.grade || mappedThing.note) && record) {
-      // Record activity
-      const currentTick = new Date().getTime();
-      if (!startingTime) startingTime = currentTick;
-      hitsLog.push({ str, key, time: currentTick - startingTime })
-    }
-
     if (mappedThing.grade) {
-      // CHORDS
+      // CHORD
       const { grade, secDom, subMin } = mappedThing;
       const { label, gradeName } = playChord(grade, secDom, subMin);
       instrumentStatus = {
@@ -102,22 +74,11 @@ const keyHandler = (str, key, record = true) => {
         subMin,
       }
       printScreen(instrumentStatus, label, subMin ? 1 : (secDom ? 2 : 0 ));
-
     } else if (mappedThing.note) {
       // NOTE
-      const { secDom, subMin } = instrumentStatus;
       const index = mappedThing.note;
-      let scale = [0,2,4,5,7,9,11,12,14,16];
-      if (subMin) {
-        scale = [0,2,3,5,7,8,10,12,14,15];
-      }
-
-      const filterMode = false;
-      if (!filterMode || scale.includes(index-1)) {
-        if (!pedal) releasePedal();
-        playSingleNote(index-4)
-      }
-
+      if (!pedal) releasePedal();
+      playSingleNote(index-4)
     } else if (mappedThing.semitone) {
       // TRANSPOSE
       moveTonality(mappedThing.semitone);
@@ -129,12 +90,9 @@ const keyHandler = (str, key, record = true) => {
     } else if (mappedThing.release) {
       // RELEASE
       releasePedal();
-      //printScreen(instrumentStatus, "release", 3);
-      printScreen(instrumentStatus, "loop", 3);
-      scheduleLoop();
-
+      printScreen(instrumentStatus, "release", 3);
     } else if (mappedThing.pedal) {
-      // RELEASE
+      // PEDAL
       pedal = !pedal;
       printScreen(instrumentStatus, `Pedal ${pedal ? 'ON' : 'OFF'}`, 3);
 
