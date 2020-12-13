@@ -57,12 +57,12 @@ const moveTonality = (n) => {
 const playSingleNote = (singleNote) => {
   midiOutput.send('noteon', {
     note: currentKey + 12 + singleNote,
-    velocity: 64,
+    velocity: 48,
     channel: DEFAULT_CHANNEL,
   });
 }
 
-const playChord = (grade, secDom, subMin) => {
+const playChord = (grade, secDom, subMin, arpeggio = false) => {
   let notes;
   let currentTable = table;
   let newGrade = grade;
@@ -95,13 +95,15 @@ const playChord = (grade, secDom, subMin) => {
     label = getChordName(tonalityName(chordKey % 12), newGrade);
   }
   
-  releasePedal(notes, getCurrentTonality() + 12);
-  notes.forEach((note) => {
-    midiOutput.send('noteon', {
-      note: note,
-      velocity: 64,
-      channel: DEFAULT_CHANNEL,
-    });
+  releasePedal(notes, currentKey + 11);
+  notes.forEach((note, ind) => {
+    setTimeout(() => {
+      midiOutput.send('noteon', {
+        note: note,
+        velocity: 64,
+        channel: DEFAULT_CHANNEL,
+      });
+    }, arpeggio ? ind * 240 : 0);
   });
 
   return {

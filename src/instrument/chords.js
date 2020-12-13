@@ -28,18 +28,18 @@ const diatonicChords = (note) => ({
     ],
     mixolydian: [
         note - 5 - 12,
-        note - 5 + 12,
+        note - 5,
         note - 1,
         note + 2,
     ],
     eolian: [
-        note - 15 - 12,
+        note - 15,
         note - 3,
         note,
         note + 4,
     ],
     locrian: [
-        note - 13 - 12,
+        note - 13,
         note - 1,
         note + 2,
         note + 5,
@@ -66,19 +66,19 @@ const secDomChords = (note) => ({
         note + 5,
     ],
     dorian: [
-        note - 15 - 12,
+        note - 15,
         note - 3,
         note + 1, // new note
         note + 4,
     ],
     phrygian: [
-        note - 13 - 12,
+        note - 13,
         note - 1,
         note + 3, // new note
         note + 6, // new note
     ],
     lydian: [
-        note - 12 - 12,
+        note - 12,
         note,
         note + 4,
         note + 7,
@@ -94,10 +94,10 @@ const secDomChords = (note) => ({
         note - 8 - 12,
         note + 4,
         note + 8, // new note
-        (note + 11) - 12,
+        note + 11 - 12,
     ],
     locrian: [
-        note - 13 - 12,
+        note - 13,
         note - 1,
         note + 2,
         note + 5,

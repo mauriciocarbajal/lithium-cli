@@ -117,7 +117,7 @@ const getNotePadding = (note) => {
         result.push(highlight(noteName[n], 5));
       }
     } else {
-      result.push('   ');
+      result.push('     ');
     }
   }
   

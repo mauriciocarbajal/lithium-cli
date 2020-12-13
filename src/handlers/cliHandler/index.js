@@ -53,6 +53,8 @@ let instrumentStatus = {
   grade: '?',
 }
 
+let arpeggio = false;
+
 // Splash screen
 clearScreen();
 printScreen(instrumentStatus, "boplicity", 3);
@@ -73,14 +75,14 @@ const keyHandler = (str, key) => {
     } else if (mappedThing.grade) {
       // CHORD
       const { grade, secDom, subMin } = mappedThing;
-      const { label, gradeName } = playChord(grade, secDom, subMin);
+      const { label, gradeName } = playChord(grade, secDom, subMin, arpeggio);
       instrumentStatus = {
         key: getCurrentTonality(),
         grade: gradeName,
         secDom,
         subMin,
       }
-      console.log(highlight(`------------------------------------------------------> ${label}`, subMin ? 1 : (secDom ? 2 : 7 )));
+      console.log(highlight(`----------------------------------------------------------------------------------------| ${label}`, subMin ? 1 : (secDom ? 2 : 7 )));
 
     } else if (mappedThing.semitone) {
       // TRANSPOSE
@@ -97,6 +99,11 @@ const keyHandler = (str, key) => {
       releasePedal();
       clearScreen();
       printScreen(instrumentStatus, "boplicity", 3);
+
+    } else if (mappedThing.arpeggio) {
+      // ARPEGGIO
+      arpeggio = !arpeggio;
+      console.log(arpeggio ? 'Arpeggio mode ON' : 'Arpeggio mode OFF');
 
     } else if (mappedThing.mute && leapOn) {
       // MUTE
