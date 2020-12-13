@@ -62,7 +62,7 @@ const playSingleNote = (singleNote) => {
   });
 }
 
-const playChord = (grade, secDom, subMin, arpeggio = false) => {
+const playChord = (grade, secDom, subMin, arpeggio = 0) => {
   let notes;
   let currentTable = table;
   let newGrade = grade;
@@ -103,7 +103,7 @@ const playChord = (grade, secDom, subMin, arpeggio = false) => {
         velocity: 64,
         channel: DEFAULT_CHANNEL,
       });
-    }, arpeggio ? ind * 240 : 0);
+    }, arpeggio ? ind * arpeggio * 50 : 0);
   });
 
   return {

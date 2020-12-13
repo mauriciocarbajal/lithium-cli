@@ -53,7 +53,7 @@ let instrumentStatus = {
   grade: '?',
 }
 
-let arpeggio = false;
+let arpeggio = 0;
 
 // Splash screen
 clearScreen();
@@ -102,8 +102,8 @@ const keyHandler = (str, key) => {
 
     } else if (mappedThing.arpeggio) {
       // ARPEGGIO
-      arpeggio = !arpeggio;
-      console.log(arpeggio ? 'Arpeggio mode ON' : 'Arpeggio mode OFF');
+      arpeggio = (arpeggio === 4) ? 0 : arpeggio = arpeggio + 1;
+      console.log(arpeggio ? `Arpeggio mode ON - Level ${arpeggio}` : 'Arpeggio mode OFF');
 
     } else if (mappedThing.mute && leapOn) {
       // MUTE
