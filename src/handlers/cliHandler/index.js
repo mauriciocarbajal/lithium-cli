@@ -55,7 +55,7 @@ let instrumentStatus = {
 
 // Splash screen
 clearScreen();
-printScreen(instrumentStatus, "Boplicity", 3);
+printScreen(instrumentStatus, "boplicity", 3);
 
 const keyHandler = (str, key) => {
   if (key.ctrl && key.name === 'c') {
@@ -80,7 +80,7 @@ const keyHandler = (str, key) => {
         secDom,
         subMin,
       }
-      console.log(highlight(`----------> ${label}`, subMin ? 1 : (secDom ? 2 : 7 )));
+      console.log(highlight(`--------------------------- ${label} ---------------------------`, subMin ? 1 : (secDom ? 2 : 7 )));
 
     } else if (mappedThing.semitone) {
       // TRANSPOSE
@@ -89,12 +89,12 @@ const keyHandler = (str, key) => {
         ...instrumentStatus,
         key: getCurrentTonality(),
       }
-      printScreen(instrumentStatus, getCurrentTonality(), 3);
+      // printScreen(instrumentStatus, getCurrentTonality(), 3);
+      console.log(`${highlight(`< switched to `, 6)}${highlight(getCurrentTonality(), 4)}${highlight(` >`, 6)}`);
 
     } else if (mappedThing.release) {
       // RELEASE
       releasePedal();
-      printScreen(instrumentStatus, "release", 3);
 
     } else if (mappedThing.mute && leapOn) {
       // MUTE

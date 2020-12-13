@@ -109,7 +109,7 @@ const getNotePadding = (note) => {
   for(let i = 0; i < 19; i = i + 1) {
     if (i === n) {
       if ([0,4,7,11,12,16].includes(i)) {
-        result.push(highlight(noteName[n], 7));
+        result.push(highlight(noteName[n], 3));
       } else if ([2,5,9,14,17].includes(i)) {
         result.push(highlight(noteName[n], 2));
       } else if ([3,8,10,15].includes(i)) {
