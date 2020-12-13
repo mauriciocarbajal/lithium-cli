@@ -75,12 +75,12 @@ const keyHandler = (str, key) => {
         subMin,
       }
       printScreen(instrumentStatus, label, subMin ? 1 : (secDom ? 2 : 0 ));
-    } else if (mappedThing.note) {
+    } else if (mappedThing.note !== undefined) {
       // NOTE
       const index = mappedThing.note;
-      console.log(getNoteName(index-4));
+      console.log(getNoteName(index));
 
-      playSingleNote(index-4)
+      playSingleNote(index)
     } else if (mappedThing.semitone) {
       // TRANSPOSE
       moveTonality(mappedThing.semitone);

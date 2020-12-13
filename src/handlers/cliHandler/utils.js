@@ -7,7 +7,7 @@ const printEmptyLines = (lines, ch = ' ') => {
 const getNoteName = (note) => {
   const i = (note < 0)
     ? note + 12
-    : (note > 12) ? (note % 12) : note;
+    : (note > 18) ? (note % 12) : note;
   return ({
     0: '1',
     1: 'b2',
@@ -22,6 +22,12 @@ const getNoteName = (note) => {
     10: '7',
     11: '7M',
     12: '8',
+    13: 'b9',
+    14: '9',
+    15: '#9',
+    16: '10',
+    17: '11',
+    18: '#11',
   })[i];
 }
 

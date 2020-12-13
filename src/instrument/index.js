@@ -86,7 +86,7 @@ const playChord = (grade, secDom, subMin) => {
   notes.forEach((note) => {
     midiOutput.send('noteon', {
       note: note,
-      velocity: 98,
+      velocity: 48,
       channel: DEFAULT_CHANNEL,
     });
   });
@@ -126,7 +126,6 @@ const sendPitchChange = (value) => {
 }
 
 const releasePedal = (firstNote = 0, lastNote = 128) => {
-  console.log('release pedal', firstNote, lastNote);
   for (let i = firstNote; i < lastNote; i = i + 1) {
     midiOutput.send('noteoff', {
       note: i,
