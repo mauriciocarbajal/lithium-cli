@@ -49,6 +49,19 @@ const getCurrentTonality = () => {
   return tonalityName(currentKey % 12)
 }
 
+const moveTonality = (n) => {
+  currentKey = currentKey + n;
+  table = getChords(currentKey);
+}
+
+const playSingleNote = (singleNote) => {
+  midiOutput.send('noteon', {
+    note: currentKey + 12 + singleNote,
+    velocity: 64,
+    channel: DEFAULT_CHANNEL,
+  });
+}
+
 const playChord = (grade, secDom, subMin) => {
   let notes;
   let currentTable = table;
@@ -82,11 +95,11 @@ const playChord = (grade, secDom, subMin) => {
     label = getChordName(tonalityName(chordKey % 12), newGrade);
   }
   
-  releaseChordsPedal();
+  releasePedal(notes);
   notes.forEach((note) => {
     midiOutput.send('noteon', {
       note: note,
-      velocity: 48,
+      velocity: 64,
       channel: DEFAULT_CHANNEL,
     });
   });
@@ -95,19 +108,6 @@ const playChord = (grade, secDom, subMin) => {
     label,
     gradeName: getGradeName(newGrade),
   };
-}
-
-const playSingleNote = (singleNote) => {
-  midiOutput.send('noteon', {
-    note: currentKey + 12 + singleNote,
-    velocity: 64,
-    channel: DEFAULT_CHANNEL,
-  });
-}
-
-const moveTonality = (n) => {
-  currentKey = currentKey + n;
-  table = getChords(currentKey);
 }
 
 const sendControlChange = (value, controller = 7) => {
@@ -125,26 +125,21 @@ const sendPitchChange = (value) => {
   })
 }
 
-const releasePedal = (firstNote = 0, lastNote = 128) => {
-  for (let i = firstNote; i < lastNote; i = i + 1) {
-    midiOutput.send('noteoff', {
-      note: i,
-      velocity: 0,
-      channel: DEFAULT_CHANNEL,
-    });
-
-    midiOutput.send('reset')
+const releasePedal = (except = []) => {
+  for (let i = 0; i <= 127; i = i + 1) {
+    if (!except.includes(i)) {
+      midiOutput.send('noteoff', {
+        note: i,
+        velocity: 64,
+        channel: DEFAULT_CHANNEL,
+      });
+    }
   }
 };
-
-const releaseChordsPedal = () => {
-  releasePedal(0, currentKey + 12);
-}
 
 const closeInstrument = () => {
   midiOutput.close();
 }
-
 
 module.exports = {
   startInstrument,

@@ -54,7 +54,7 @@ const printScreen = async (instrumentStatus, label, color) => {
   
   // MAIN
   printEmptyLines(1);
-  const labelASCII = await asyncPrintScreen(`   ${label}`, defaultFont);
+  const labelASCII = await asyncPrintScreen(` ${label}`, defaultFont);
   console.log(highlight(labelASCII, color));
   printEmptyLines(1);
   
@@ -78,10 +78,58 @@ const printScreen = async (instrumentStatus, label, color) => {
   console.log('')
 }
 
+const noteName = {
+  0: '1',
+  1: 'b2',
+  2: '2',
+  3: '3m',
+  4: '3',
+  5: '4',
+  6: '#4',
+  7: '5',
+  8: 'b6',
+  9: '6',
+  10: '7',
+  11: '7M',
+  12: '8',
+  13: 'b9',
+  14: '9',
+  15: '#9',
+  16: '10',
+  17: '11',
+  18: '#11',
+};
 
+const getNotePadding = (note) => {
+  const n = (note < 0)
+    ? note + 12
+    : (note > 18) ? (note % 12) : note;
+
+  let result = [];
+  for(let i = 0; i < 19; i = i + 1) {
+    if (i === n) {
+      if ([0,4,7,11,12,16].includes(i)) {
+        result.push(highlight(noteName[n], 7));
+      } else if ([2,5,9,14,17].includes(i)) {
+        result.push(highlight(noteName[n], 2));
+      } else if ([3,8,10,15].includes(i)) {
+        result.push(highlight(noteName[n], 1));
+      } else {
+        result.push(highlight(noteName[n], 5));
+      }
+    } else {
+      result.push('   ');
+    }
+  }
+  
+  return result.join('');
+}
 
 module.exports = {
   clearScreen,
   printScreen,
-  asyncPrintScreen
+  asyncPrintScreen,
+  highlight,
+  getNotePadding,
 }
+
