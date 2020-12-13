@@ -80,7 +80,7 @@ const keyHandler = (str, key) => {
         secDom,
         subMin,
       }
-      console.log(highlight(`--------------------------- ${label} ---------------------------`, subMin ? 1 : (secDom ? 2 : 7 )));
+      console.log(highlight(`------------------------------------------------------> ${label}`, subMin ? 1 : (secDom ? 2 : 7 )));
 
     } else if (mappedThing.semitone) {
       // TRANSPOSE
@@ -95,6 +95,8 @@ const keyHandler = (str, key) => {
     } else if (mappedThing.release) {
       // RELEASE
       releasePedal();
+      clearScreen();
+      printScreen(instrumentStatus, "boplicity", 3);
 
     } else if (mappedThing.mute && leapOn) {
       // MUTE
