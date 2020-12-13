@@ -71,10 +71,9 @@ const printScreen = async (instrumentStatus, label, color) => {
   console.log(highlight('Hold shift to play a V7 secondary dominant chord', 4));
   console.log('')
 
-  console.log(highlight('|o|p|=|0|', 3));
-  console.log(highlight('Use o and p to change key one semitone up/down', 4));
-  console.log(highlight('Use 0 to release the notes', 4));
-  console.log(highlight('Use k to mute', 4));
+  console.log(highlight('|<|>|space|', 3));
+  console.log(highlight('Use < and > to change key one semitone up/down', 4));
+  console.log(highlight('Use space to release the notes and reset', 4));
   console.log('')
 }
 
