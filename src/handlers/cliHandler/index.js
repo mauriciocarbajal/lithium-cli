@@ -7,6 +7,7 @@
  */
 
 const readline = require('readline');
+const { getNoteName } = require('./utils');
 const { printScreen, clearScreen } = require('./asciiart');
 const { mappings } = require('./mappings');
 
@@ -55,7 +56,7 @@ let instrumentStatus = {
 clearScreen();
 printScreen(instrumentStatus, "Boplicity", 3);
 
-let pedal = true;
+let pedal = false;
 
 const keyHandler = (str, key) => {
   if (key.ctrl && key.name === 'c') {
@@ -77,7 +78,8 @@ const keyHandler = (str, key) => {
     } else if (mappedThing.note) {
       // NOTE
       const index = mappedThing.note;
-      if (!pedal) releasePedal();
+      console.log(getNoteName(index-4));
+
       playSingleNote(index-4)
     } else if (mappedThing.semitone) {
       // TRANSPOSE

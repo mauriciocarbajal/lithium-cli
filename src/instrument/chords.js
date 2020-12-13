@@ -18,7 +18,7 @@ const diatonicChords = (note) => ({
         note - 8 - 12,
         note + 4,
         note + 7,
-        (note + 11) - 12,
+        (note + 11),
     ],
     lydian: [
         note - 7 - 12,

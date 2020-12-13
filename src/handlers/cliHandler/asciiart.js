@@ -1,6 +1,6 @@
 const figlet = require('figlet');
 const { highlight } = require('./instructions');
-const { showSpaces } = require('./utils');
+const { printEmptyLines } = require('./utils');
 
 const DEBUG = false;
 
@@ -53,11 +53,10 @@ const printScreen = async (instrumentStatus, label, color) => {
   printHUD(key, displayGrade);
   
   // MAIN
-  showSpaces(3);
-  // console.log(highlight(gradeASCII, 3));
+  printEmptyLines(1);
   const labelASCII = await asyncPrintScreen(`   ${label}`, defaultFont);
   console.log(highlight(labelASCII, color));
-  showSpaces(3);
+  printEmptyLines(1);
   
   // INSTRUCTIONS
   console.log(highlight('|1|2|3|4|5|6|7|', 0));
@@ -83,5 +82,6 @@ const printScreen = async (instrumentStatus, label, color) => {
 
 module.exports = {
   clearScreen,
-  printScreen
+  printScreen,
+  asyncPrintScreen
 }
