@@ -82,7 +82,7 @@ const keyHandler = (str, key) => {
         secDom,
         subMin,
       }
-      console.log(highlight(`----------------------------------------------------------------------------------------| ${label}`, subMin ? 1 : (secDom ? 2 : 7 )));
+      console.log(highlight(`>> ${label}`, subMin ? 1 : (secDom ? 2 : 7 )));
 
     } else if (mappedThing.semitone) {
       // TRANSPOSE
