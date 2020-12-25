@@ -57,7 +57,7 @@ let arpeggio = 0;
 
 // Splash screen
 clearScreen();
-printScreen(instrumentStatus, "boplicity", 3);
+printScreen(instrumentStatus, "lithium", 3);
 
 const keyHandler = (str, key) => {
   if (key.ctrl && key.name === 'c') {
@@ -98,7 +98,7 @@ const keyHandler = (str, key) => {
       // RELEASE
       releasePedal();
       clearScreen();
-      printScreen(instrumentStatus, "boplicity", 3);
+      printScreen(instrumentStatus, "lithium", 3);
 
     } else if (mappedThing.arpeggio) {
       // ARPEGGIO

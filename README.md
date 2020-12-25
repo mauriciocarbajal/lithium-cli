@@ -1,4 +1,4 @@
-# Boplicity 🎵
+# Lithium 🎵
 This mini project consist of a virtual MIDI instrument with CLI interface, developed in nodejs.
 
 ## What can I do?
@@ -14,8 +14,8 @@ Next, follow this steps:
 
 2. Open a terminal and run the next commands to clone this repo in your machine:
 ```
-git clone https://github.com/mauriciocarbajal/boplicity.git
-cd boplicity
+git clone https://github.com/mauriciocarbajal/lithium.git
+cd lithium
 ```
 
 3. Install all the required dependencies running this command:
@@ -29,7 +29,7 @@ npm run cli
 ```
 
 ### Video
-You can see a video here, running boplicity and exploring its basic features:
+You can see a video here, running lithium and exploring its basic features:
 
 [![Watch the video](https://i.vimeocdn.com/video/850101961.webp?mw=1800&mh=1125&q=70)](https://vimeo.com/387222224)
 

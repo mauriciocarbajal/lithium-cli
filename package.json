@@ -1,5 +1,5 @@
 {
-  "name": "keys-harmony",
+  "name": "lithium",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,19 @@
     "cli": "node ./src/handlers/cliHandler/index.js",
     "leap": "node ./src/handlers/leapHandler/run.js"
   },
+  "bin": {
+    "lithium": "./src/handlers/cliHandler/index.js"
+  },
+  "pkg": {
+    "assets": "./node_modules/**"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "easymidi": "^1.0.1",
     "figlet": "^1.2.4",
     "leapjs": "^0.6.4",
+    "midi": "^1.0.0",
     "readline": "^1.3.0",
     "throttle-debounce": "^3.0.1"
   }
