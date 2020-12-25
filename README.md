@@ -151,7 +151,7 @@ v    m  1         6
 Just an old sweet song
 
 2             5     3  ⇧2 (or ⇧C)
-Keeps Georgia on my mind..
+Keeps Georgia on my mind...
 
 2  5  ⇧1  1
 ```
