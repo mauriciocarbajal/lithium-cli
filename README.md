@@ -28,11 +28,6 @@ npm install
 npm run cli
 ```
 
-### Video
-You can see a video here, running lithium and exploring its basic features:
-
-[![Watch the video](https://i.vimeocdn.com/video/850101961.webp?mw=1800&mh=1125&q=70)](https://vimeo.com/387222224)
-
 ## How do I use it?
 First, some basic theory: `I IIm IIIm IV V7 VIm VIIØ` are the diatonic chords of a major scale.
 
@@ -45,42 +40,43 @@ Many popular songs never go outside their key and rarely they use all seven chor
 For instance, to play "Let it be":
 ```
 C G Am F
-C G F C
+C G F (cadence) C
 ```
 
 Just hit the numbers associated to each grade of the C key:
 ```
 1 5 6 4
-1 5 4 1
+1 5 4 (3 2) 1
 ```
 
-Keep in mind that you must think of `I`, `IV` and `V` and not think of "How do I play a D chord". This is a good exercise.
+Keep in mind that you should think in terms of `I`, `IV` and `V` and not of D major, G major or A7. This is a good exercise.
+
 If you are familiarized with things like `IIm-V7-I`, you will find this key mapping not random at all.
 
-Use `<` and `>` to change the key.
+Use `<` and `>` to change tonality.
 
-## More complex song
-Here's where song "Lithium" from 90s band Nirvana comes to action as a perfect case of study:
+## More complex songs...
+Here's where the song "Lithium" from 90s band Nirvana comes to action as an interesting case of study:
 
 Tonality: D major
 
-Chords:
+Chords and analysis:
 ```
-D   <--- I
-F#7 <--- V7 -> VIm (secondary dominant)
-Bm  <--- VIm
-G   <--- IV
-Bb  <--- bVI     (IV borrowed from D minor, modal interchange)
-C7  <--- bVII7   (V7 borrowed from D minor, modal interchange)
-A7  <--- V7
-C7  <--- bVII7   (V7 borrowed from D minor, modal interchange)
-D   <--- I
+D     <--- I
+F#7   <--- V7 -> VIm (secondary dominant)
+Bm    <--- VIm
+G     <--- IV
+Bb    <--- bVI     (IV borrowed from D minor, modal interchange)
+C7    <--- bVII7   (V7 borrowed from D minor, modal interchange)
+A7    <--- V7
+C7    <--- bVII7   (V7 borrowed from D minor, modal interchange)
+D     <--- I
 ```
 
 ### Secondary dominants
 Secondary dominants are the cornerstone of popular music and jazz of the 20th century, Wikipedia says.
 
-To play this kind of chords, simply press shift key and any diatonic chord, and its secondary dominant will be played instead of the diatonic chord.
+To play this kind of chords, simply press shift key for any diatonic chord, and its secondary dominant will be played instead.
 
 For instance,
 ```
@@ -91,9 +87,9 @@ For instance,
 ### Modal interchange
 Modal interchange consists of borrowing chords from other tonalities.
 
-When we're in a major key (such as D major), we often borrow chords from the minor key (from D minor, which is F major)
+When we're in a major key (such as D major), we can borrow chords from the minor key (from D minor, which is F major)
 
-You will find chords from the `Im` tonality in the `z x c v b n m` row.
+You can find those chords in the `z x c v b n m` row.
 
 ```
 z => Cm
@@ -105,11 +101,16 @@ n => Ab
 m => Bb7
 ```
 
-### Play it, Sam
-So now you are all set to play all chords from the song above...
+### Ready?
+Nw you are all set to play the song above:
+
 ```
 1  ⇧6  6  4  n  m  5  m  1
 ```
+
+Can you notice the different nature of those chords played when you pressed `n` and `m`?
+
+This way of borrowing major chords from the minor tonality always makes me think of Nirvana. Or Jigglypuff song, to be honest.
 
 ## Adding melodies
 You can play a melody in the keyboard using the z row and the a row. This is clearly a piano 🎹:
@@ -150,7 +151,7 @@ The whole day through
 v    m  1         6
 Just an old sweet song
 
-2             5     3  ⇧2 (or ⇧C)
+2             5     3(or ⇧C)  ⇧2 
 Keeps Georgia on my mind...
 
 2  5  ⇧1  1
