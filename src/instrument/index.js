@@ -57,7 +57,7 @@ const moveTonality = (n) => {
 const playSingleNote = (singleNote) => {
   midiOutput.send('noteon', {
     note: currentKey + 12 + singleNote,
-    velocity: 48,
+    velocity: 64,
     channel: DEFAULT_CHANNEL,
   });
 }
