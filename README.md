@@ -57,39 +57,43 @@ Just hit the numbers associated to each grade of the C key:
 Keep in mind that you must think of `I`, `IV` and `V` and not think of "How do I play a D chord". This is a good exercise.
 If you are familiarized with things like `IIm-V7-I`, you will find this key mapping not random at all.
 
-Use `o` and `p` to change the key
+Use `<` and `>` to change the key.
 
-## More complex chords
-But ok, you know what a IIm-V7-I is and you want to play more complex songs.
+## More complex song
+Here's where song "Lithium" from 90s band Nirvana comes to action as a perfect case of study:
 
-Secondary dominants are the cornerstone of popular music and jazz of the 20th century, Wikipedia says.
+Tonality: D major
 
-So you must know them! Take "All of me" as an example:
-
+Chords:
 ```
-C [E7] [A7] Dm
-[E7] Am [D7] Dm G7
-C [E7] [A7] Dm
-F [[Fm]] Em [A7]
-Dm G C
+D   <--- I
+F#7 <--- V7 -> VIm (secondary dominant)
+Bm  <--- VIm
+G   <--- IV
+Bb  <--- bVI     (IV borrowed from D minor, modal interchange)
+C7  <--- bVII7   (V7 borrowed from D minor, modal interchange)
+A7  <--- V7
+C7  <--- bVII7   (V7 borrowed from D minor, modal interchange)
+D   <--- I
 ```
 
 ### Secondary dominants
-Chords between brackets are secondary dominants which will resolve to a diatonic chord.
+Secondary dominants are the cornerstone of popular music and jazz of the 20th century, Wikipedia says.
 
-To play this chords, simply press shift key and his secondary dominant will be played instead of the diatonic chord.
+To play this kind of chords, simply press shift key and any diatonic chord, and its secondary dominant will be played instead of the diatonic chord.
 
-For instance, if tonality were C major:
-
+For instance,
 ```
-2 => Dm major chord
-⇧2 => A7 chord, which resolves to Dm
+6 => Bm minor chord
+⇧6 => F#7 chord, which resolves to Bm
 ```
 
 ### Modal interchange
-The chord between double brackets (the `Fm`) is a modal interchange from another key.
+Modal interchange consists of borrowing chords from other tonalities.
 
-You will find chords you can borrow from the `Im` tonality in the ` q w e r t y u` row.
+When we're in a major key (such as D major), we often borrow chords from the minor key (from D minor, which is F major)
+
+You will find chords from the `Im` tonality in the `z x c v b n m` row.
 
 ```
 z => Cm
@@ -102,13 +106,9 @@ m => Bb7
 ```
 
 ### Play it, Sam
-So now you are all set to play "All of me" chords...
+So now you are all set to play all chords from the song above...
 ```
-1 ⇧6 ⇧2 2
-⇧6 6 ⇧5 2 5
-1 ⇧6 ⇧2 2
-4 r 3 ⇧2
-2 5 1
+1  ⇧6  6  4  n  m  5  m  1
 ```
 
 ## Adding melodies
@@ -118,21 +118,40 @@ You can play a melody in the keyboard using the z row and the a row. This is cle
 a s d f g h j k l ; '
 ```
 
-The z row has the diatonic scale of the key you're in, so those notes probably go well if you are playing diatonic chords. 
+The `asd` row has the diatonic scale of the key you're in, so those notes probably go well if you are playing diatonic chords. 
 
 There are some rules here, but explore and see how they sound to you. What sounds nice and why?
-
-## Leap motion support
-There is partial [leap motion](https://developer.leapmotion.com/) support if you happen to have one.
-
-In that case run `npm run leap` instead. I still haven't found a good combination of gestures to match the keyboard, but you can map some of them easily, and also use your hand as a module effect changer (e.g. change volume as if it were a theremin).
-
 
 ## Thoughts
 This weird user interface will help you to think of chords as a function inside a tonality where they belong to.
 
-Music harmony might be simpler than you think. Each particular instrument always add more complexity because of physical restrictions and because life. Much of the time you spend learning a new instrument goes to overcoming those restrictions.
+Music harmony might be simpler than you think. Each particular instrument always add more complexity because of physical restrictions. Much of the time you spend learning a new instrument goes to overcoming those restrictions.
 
 This is a small tool for exploring harmony, starting from the very basic `I IV V7 I` progressions. You can try some harmonic changes that still might be difficult for you to play in your preferred instrument. Hopefully you can find some new musical ideas to chase afterwards.
 
 To exit press `ctrl + c`
+
+## Bonus: Leap motion support
+There is partial [leap motion](https://developer.leapmotion.com/) support if you happen to have one.
+
+In that case run `npm run leap` instead. I still haven't found a good combination of gestures to match the keyboard, but you can map some of them easily, and also use your hand as a module effect changer (such as volume or pitch).
+
+## Bonus: Georgia on my mind
+Take this jazz standard as an example of a not so obvious harmony. Could it be played on this instrumentoid?
+
+Tonality: G major
+```
+1        ⇧6
+Georgia, Georgia
+
+6   ⇧4        4       
+The whole day through
+
+v    m  1         6
+Just an old sweet song
+
+2             5     3  ⇧2 (or ⇧C)
+Keeps Georgia on my mind..
+
+2  5  ⇧1  1
+```
