@@ -92,13 +92,13 @@ The chord between double brackets (the `Fm`) is a modal interchange from another
 You will find chords you can borrow from the `Im` tonality in the ` q w e r t y u` row.
 
 ```
-q => Cm
-w => DØ (IIØ)
-e => Eb (IVm)
-r => Fm
-t => Gm
-y => Ab
-u => Bb7
+z => Cm
+x => DØ (IIØ)
+c => Eb (IVm)
+v => Fm
+b => Gm
+n => Ab
+m => Bb7
 ```
 
 ### Play it, Sam
@@ -114,8 +114,8 @@ So now you are all set to play "All of me" chords...
 ## Adding melodies
 You can play a melody in the keyboard using the z row and the a row. This is clearly a piano 🎹:
 ```
- s   f g   j k l  
-z x c v b n m , . /
+ w e   t y u   o p   ]
+a s d f g h j k l ; '
 ```
 
 The z row has the diatonic scale of the key you're in, so those notes probably go well if you are playing diatonic chords. 
