@@ -1,3 +1,6 @@
 node_modules
 *.log
 .DS_Store
+lithium-linux
+lithium-macos
+lithium-win.exe
