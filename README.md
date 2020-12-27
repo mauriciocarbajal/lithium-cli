@@ -102,11 +102,12 @@ m => Bb7
 ```
 
 ### Ready?
-Nw you are all set to play the song above:
+Now you are all set to play the song above:
 
 ```
 1  ⇧6  6  4  n  m  5  m  1
 ```
+Video here: https://vimeo.com/494868069
 
 Can you notice the different nature of those chords played when you pressed `n` and `m`?
 
@@ -156,3 +157,4 @@ Keeps Georgia on my mind...
 
 2  5  ⇧1  1
 ```
+Video here: https://vimeo.com/494875964
