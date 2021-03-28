@@ -35,7 +35,7 @@ const { playModifiers } = require('../leapHandler/handlers');
 
 // Initialize leap loop
 let leapOn = false;
-var myArgs = process.argv.slice(2);
+let myArgs = process.argv.slice(2);
 if (myArgs && myArgs[0] === "leap") {
   console.log('Leap initialized...')
   startLeap(playModifiers(instrumentFeatures));
