@@ -72,6 +72,7 @@ const extraActions = {
   '>': { semitone: 1 },
   'space': { release: true },
   '`': { arpeggio: true },
+  '/': { melodyOffset: true },
 }
 
 const mapping = {

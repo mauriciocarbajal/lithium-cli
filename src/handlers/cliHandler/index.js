@@ -23,6 +23,7 @@ const {
     releasePedal,
     sendControlChange,
     moveTonality,
+    moveMelody,
   },
   closeInstrument, 
 } = require('../../instrument');
@@ -54,7 +55,7 @@ let instrumentStatus = {
 }
 
 let arpeggio = 0;
-
+let melodyOffset = 12;
 // Splash screen
 clearScreen();
 printScreen(instrumentStatus, "lithium", 3);
@@ -104,6 +105,11 @@ const keyHandler = (str, key) => {
       // ARPEGGIO
       arpeggio = (arpeggio === 4) ? 0 : arpeggio = arpeggio + 1;
       console.log(arpeggio ? `Arpeggio mode ON - Level ${arpeggio}` : 'Arpeggio mode OFF');
+
+    } else if (mappedThing.melodyOffset) {
+      melodyOffset = (melodyOffset === 12) ? 0 : 12;
+      moveMelody(melodyOffset);
+      console.log(`Melody set to ${(melodyOffset === 12) ? 'DEFAULT' : 'LOWER'}`);
 
     } else if (mappedThing.mute && leapOn) {
       // MUTE
