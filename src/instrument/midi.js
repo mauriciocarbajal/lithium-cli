@@ -50,7 +50,6 @@ class MIDIHandler {
     }
 
     releasePedal () {
-        console.log('this.playingNotes', this.playingNotes);
         for (let i in this.playingNotes) {
             this.sendNoteOff(this.playingNotes[i]);
         }
