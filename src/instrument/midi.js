@@ -76,7 +76,9 @@ class MIDIHandler {
 
     releaseChordNotes () {
         for (let i in this.chordNotes) {
-            this.sendNoteOff(this.chordNotes[i]);
+            if (!this.melodyNotes.includes(i)) {
+                this.sendNoteOff(this.chordNotes[i]);
+            }
         }
         this.chordNotes = [];
     }

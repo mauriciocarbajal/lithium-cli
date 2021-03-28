@@ -75,7 +75,7 @@ const extraActions = {
   '<': { semitone: -1 },
   '>': { semitone: 1 },
   'space': { release: true },
-  '`': { arpeggio: true },
+  '=': { arpeggio: true },
   '/': { staccato: true },
 }
 

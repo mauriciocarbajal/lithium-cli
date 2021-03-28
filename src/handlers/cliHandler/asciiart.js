@@ -56,8 +56,12 @@ const printScreen = async (instrumentStatus, label, color) => {
   console.log('');
 
   console.log(highlight('shift', 2), '\t\t---\tHold shift to play a V7 secondary dominant chord');
-  console.log(highlight('< >', 2), '\t\t---\tUse < and > to change key one semitone up/down');
-  console.log(highlight('space', 2), '\t\t---\tUse space to release the notes and reset');
+  console.log(highlight('< >', 3), '\t\t---\tUse < and > to change key one semitone up/down');
+  console.log(highlight('=', 3), '\t\t---\tPress = to play arpeggio chords');
+  console.log(highlight('/', 3), '\t\t---\tPress / to toggle staccato mode');
+  console.log('');
+
+  console.log(highlight('space', 3), '\t\t---\tUse space to release the notes and reset');
   console.log('');
 }
 
