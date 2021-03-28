@@ -42,6 +42,7 @@ const modSecondRow = {
 }
 
 const singleNotes = {
+  'q': { note: -1 },  // lol
   'a': { note: 0 },
   'w': { note: 1 },
   's': { note: 2 },
