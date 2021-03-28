@@ -62,6 +62,7 @@ const singleNotes = {
   ';': { note: 16 },
   '\'': { note: 17 },
   ']': { note: 18 },
+  '\\': { note: 19 },
 }
 
 const extraActions = {
