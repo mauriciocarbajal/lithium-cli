@@ -64,7 +64,7 @@ const playChord = (grade, secDom, subMin, arpeggio = 0) => {
     // Sub min tonality chord
     chordKey = currentKey + 3;
     currentTable = getChords(chordKey);
-    newGrade = ((grade + 4) % 7) + 1;
+    // newGrade = ((grade + 4) % 7) + 1;
   }
   
   if (secDom) {
