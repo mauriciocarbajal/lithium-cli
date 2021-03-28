@@ -35,7 +35,7 @@ class MIDIHandler {
         this.melodyNotes.push(note);
         this.sendMIDI('noteon', {
             note: note,
-            velocity: this.staccato ? 92 : 75,
+            velocity: this.staccato ? 80 : 75,
             channel: DEFAULT_CHANNEL,
         });
     }
