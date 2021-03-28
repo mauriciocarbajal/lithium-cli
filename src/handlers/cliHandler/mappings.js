@@ -60,9 +60,13 @@ const singleNotes = {
   'l': { note: 14 },
   'p': { note: 15 },
   ';': { note: 16 },
+  ':': { note: 16 },
   '\'': { note: 17 },
+  '"': { note: 17 },
   ']': { note: 18 },
+  '}': { note: 18 },
   '\\': { note: 19 },
+  '\|': { note: 19 },
 }
 
 const extraActions = {

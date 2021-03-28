@@ -51,7 +51,7 @@ const moveMelody = (offset) => {
   melodyOffset = offset;
 }
 
-const playSingleNote = (singleNote) => myMIDIHandler.sendNoteOn(currentKey + melodyOffset + singleNote, 64);
+const playSingleNote = (singleNote) => myMIDIHandler.sendNoteOn(currentKey + melodyOffset + singleNote);
 
 const playChord = (grade, secDom, subMin, arpeggio = 0) => {
   let notes;
@@ -85,10 +85,12 @@ const playChord = (grade, secDom, subMin, arpeggio = 0) => {
     notes = currentTable.chords[newGrade];
     label = getChordName(tonalityName(chordKey % 12), newGrade);
   }
+
+  myMIDIHandler.releaseChordNotes();
   
   notes.forEach((note, ind) => {
     setTimeout(() => {
-      myMIDIHandler.sendNoteOn(note, 64);
+      myMIDIHandler.sendNoteChordOn(note);
     }, arpeggio ? ind * arpeggio * 50 : 0);
   });
 

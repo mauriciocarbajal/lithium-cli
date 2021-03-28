@@ -7,14 +7,10 @@ class MIDIHandler {
     constructor() {
         this.output = new easymidi.Output('lithium-cli', true);
         this.playingNotes = [];
+        this.chordNotes = [];
     }
 
     sendMIDI (midiEvent, midiParams) {
-        if (midiEvent === 'noteon') {
-            this.sendNoteOff(midiParams.note);
-            this.playingNotes.push(midiParams.note);
-        }
-        
         this.output.send(midiEvent, midiParams);
     };
 
@@ -26,10 +22,22 @@ class MIDIHandler {
         });
     }
 
-    sendNoteOn (note, velocity = 64) {
+    sendNoteOn (note) {
+        this.sendNoteOff(note);
+        this.playingNotes.push(note);
         this.sendMIDI('noteon', {
             note: note,
-            velocity,
+            velocity: 75,
+            channel: DEFAULT_CHANNEL,
+        });
+    }
+
+    sendNoteChordOn (note) {
+        this.playingNotes.push(note);
+        this.chordNotes.push(note);
+        this.sendMIDI('noteon', {
+            note: note,
+            velocity: 64,
             channel: DEFAULT_CHANNEL,
         });
     }
@@ -54,6 +62,13 @@ class MIDIHandler {
             this.sendNoteOff(this.playingNotes[i]);
         }
         this.playingNotes = [];
+    }
+
+    releaseChordNotes () {
+        for (let i in this.chordNotes) {
+            this.sendNoteOff(this.chordNotes[i]);
+        }
+        this.chordNotes = [];
     }
 
     closeInstrument () {
