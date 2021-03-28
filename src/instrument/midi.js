@@ -58,6 +58,7 @@ class MIDIHandler {
     }
 
     closeInstrument () {
+        this.releasePedal();
         this.output.close();
     }
 }
