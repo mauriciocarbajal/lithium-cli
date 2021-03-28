@@ -6,8 +6,13 @@ const DEFAULT_CHANNEL = 0;
 class MIDIHandler {
     constructor() {
         this.output = new easymidi.Output('lithium-cli', true);
-        this.playingNotes = [];
+        this.melodyNotes = [];
         this.chordNotes = [];
+        this.staccato = false;
+    }
+
+    toggleStaccato () {
+        this.staccato = !this.staccato;
     }
 
     sendMIDI (midiEvent, midiParams) {
@@ -23,17 +28,19 @@ class MIDIHandler {
     }
 
     sendNoteOn (note) {
+        if (this.staccato) {
+            this.releaseMelodyNotes();
+        }
         this.sendNoteOff(note);
-        this.playingNotes.push(note);
+        this.melodyNotes.push(note);
         this.sendMIDI('noteon', {
             note: note,
-            velocity: 75,
+            velocity: this.staccato ? 92 : 75,
             channel: DEFAULT_CHANNEL,
         });
     }
 
     sendNoteChordOn (note) {
-        this.playingNotes.push(note);
         this.chordNotes.push(note);
         this.sendMIDI('noteon', {
             note: note,
@@ -58,10 +65,13 @@ class MIDIHandler {
     }
 
     releasePedal () {
-        for (let i in this.playingNotes) {
-            this.sendNoteOff(this.playingNotes[i]);
+        const allNotes = [...this.chordNotes, ...this.melodyNotes];
+        for (let i in allNotes) {
+            this.sendNoteOff(allNotes[i]);
         }
-        this.playingNotes = [];
+
+        this.chordNotes = [];
+        this.melodyNotes = [];
     }
 
     releaseChordNotes () {
@@ -69,6 +79,13 @@ class MIDIHandler {
             this.sendNoteOff(this.chordNotes[i]);
         }
         this.chordNotes = [];
+    }
+
+    releaseMelodyNotes () {
+        for (let i in this.melodyNotes) {
+            this.sendNoteOff(this.melodyNotes[i]);
+        }
+        this.melodyNotes = [];
     }
 
     closeInstrument () {

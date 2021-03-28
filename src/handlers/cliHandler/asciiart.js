@@ -37,44 +37,28 @@ const clearScreen = () => {
   process.stdout.write('\u001B[2J\u001B[0;0f');
 }
 
-const printHUD = (key = '-', gradeName = '-') => {
-  console.log(`Key: ${highlight(key, 5)}      Current chord: ${highlight(gradeName, 5)}`);
-}
-
 const printScreen = async (instrumentStatus, label, color) => {
   if (DEBUG) {
     return;
   }
   clearScreen();
-
-  // HUD
-  const { key, grade, secDom } = instrumentStatus;
-  const displayGrade = `${secDom ? 'V7 -> ' : ''}${grade}`
-  printHUD(key, displayGrade);
   
   // MAIN
   printEmptyLines(1);
   const labelASCII = await asyncPrintScreen(` ${label}`, defaultFont);
   console.log(highlight(labelASCII, color));
-  printEmptyLines(1);
   
   // INSTRUCTIONS
-  console.log(highlight('|1|2|3|4|5|6|7|', 0));
-  console.log(highlight('Diatonic chords', 4));
-  console.log('')
-  
-  console.log(highlight('|q|w|e|r|t|y|u|', 1));
-  console.log(highlight('Subdominant minor function chords', 4));
-  console.log('')
-  
-  console.log(highlight('|shift|', 2));
-  console.log(highlight('Hold shift to play a V7 secondary dominant chord', 4));
-  console.log('')
+  console.log(highlight('1234567890 row', 0), '\t---\tDiatonic chords');
+  console.log(highlight('qwertyuiop row', 3), '\t---\tPiano black keys');
+  console.log(highlight('asdfghjkl row', 3), '\t---\tPiano white keys');
+  console.log(highlight('zxcvbnm row', 1), '\t---\tChords to be borrowed from minor mode');
+  console.log('');
 
-  console.log(highlight('|<|>|space|', 3));
-  console.log(highlight('Use < and > to change key one semitone up/down', 4));
-  console.log(highlight('Use space to release the notes and reset', 4));
-  console.log('')
+  console.log(highlight('shift', 2), '\t\t---\tHold shift to play a V7 secondary dominant chord');
+  console.log(highlight('< >', 2), '\t\t---\tUse < and > to change key one semitone up/down');
+  console.log(highlight('space', 2), '\t\t---\tUse space to release the notes and reset');
+  console.log('');
 }
 
 const noteName = {
@@ -97,15 +81,16 @@ const noteName = {
   16: '10',
   17: '11',
   18: '#11',
+  19: '12',
 };
 
 const getNotePadding = (note) => {
   const n = (note < 0)
     ? note + 12
-    : (note > 18) ? (note % 12) : note;
+    : (note > 19) ? (note % 12) : note;
 
-  let result = [];
-  for(let i = 0; i < 19; i = i + 1) {
+  let result = ['   '];
+  for(let i = 0; i < 20; i = i + 1) {
     if (i === n) {
       if ([0,4,7,11,12,16].includes(i)) {
         result.push(highlight(noteName[n], 4));
@@ -117,7 +102,7 @@ const getNotePadding = (note) => {
         result.push(highlight(noteName[n], 5));
       }
     } else {
-      result.push('     ');
+      result.push(' ');
     }
   }
   

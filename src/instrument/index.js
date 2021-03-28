@@ -25,7 +25,6 @@ const DEFAULT_CURRENT_KEY = 60;
 
 let myMIDIHandler;
 let currentKey = DEFAULT_CURRENT_KEY;
-let melodyOffset = 12;
 
 const startInstrument = () => {
   myMIDIHandler = new MIDIHandler();
@@ -47,11 +46,12 @@ const moveTonality = (n) => {
   table = getChords(currentKey);
 }
 
-const moveMelody = (offset) => {
-  melodyOffset = offset;
+const toggleStaccato = () => {
+  myMIDIHandler.toggleStaccato();
 }
 
-const playSingleNote = (singleNote) => myMIDIHandler.sendNoteOn(currentKey + melodyOffset + singleNote);
+const MELODY_OFFSET = 0;
+const playSingleNote = (singleNote) => myMIDIHandler.sendNoteOn(currentKey + MELODY_OFFSET + singleNote);
 
 const playChord = (grade, secDom, subMin, arpeggio = 0) => {
   let notes;
@@ -116,7 +116,7 @@ module.exports = {
     sendPitchChange,
     releasePedal,
     moveTonality,
-    moveMelody,
+    toggleStaccato,
   },
   closeInstrument,
 }

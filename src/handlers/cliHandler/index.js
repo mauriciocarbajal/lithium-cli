@@ -23,7 +23,7 @@ const {
     releasePedal,
     sendControlChange,
     moveTonality,
-    moveMelody,
+    toggleStaccato,
   },
   closeInstrument, 
 } = require('../../instrument');
@@ -55,10 +55,10 @@ let instrumentStatus = {
 }
 
 let arpeggio = 0;
-let melodyOffset = 12;
+let staccato = false;
 // Splash screen
 clearScreen();
-printScreen(instrumentStatus, "lithium", 3);
+printScreen(instrumentStatus, "lithium-cli", 4);
 
 const keyHandler = (str, key) => {
   if (key.ctrl && key.name === 'c') {
@@ -77,13 +77,14 @@ const keyHandler = (str, key) => {
       // CHORD
       const { grade, secDom, subMin } = mappedThing;
       const { label, gradeName } = playChord(grade, secDom, subMin, arpeggio);
+      const displayGrade = `${secDom ? 'V7 -> ' : ''}${gradeName}`
       instrumentStatus = {
         key: getCurrentTonality(),
         grade: gradeName,
         secDom,
         subMin,
       }
-      console.log(highlight(`>> ${label}`, subMin ? 1 : (secDom ? 2 : 7 )));
+      console.log(highlight(`🎹 ${label}`, subMin ? 1 : (secDom ? 2 : 7 )), `\t\t\t[${displayGrade}]`);
 
     } else if (mappedThing.semitone) {
       // TRANSPOSE
@@ -98,18 +99,19 @@ const keyHandler = (str, key) => {
     } else if (mappedThing.release) {
       // RELEASE
       releasePedal();
-      clearScreen();
-      printScreen(instrumentStatus, "lithium", 3);
+      clearScreen();   
+      
+      printScreen(instrumentStatus, "lithium-cli", 1);
 
     } else if (mappedThing.arpeggio) {
       // ARPEGGIO
       arpeggio = (arpeggio === 4) ? 0 : arpeggio = arpeggio + 1;
       console.log(arpeggio ? `Arpeggio mode ON - Level ${arpeggio}` : 'Arpeggio mode OFF');
 
-    } else if (mappedThing.melodyOffset) {
-      melodyOffset = (melodyOffset === 12) ? 0 : 12;
-      moveMelody(melodyOffset);
-      console.log(`Melody set to ${(melodyOffset === 12) ? 'DEFAULT' : 'LOWER'}`);
+    } else if (mappedThing.staccato) {
+      staccato = !staccato;
+      toggleStaccato();
+      console.log(`Melody set to staccato ${staccato ? 'ON' : 'OFF'}`);
 
     } else if (mappedThing.mute && leapOn) {
       // MUTE
