@@ -14,7 +14,6 @@ const { mappings } = require('./mappings');
 
 const {
   startInstrument,
-  instrumentFeatures,
   instrumentFeatures: {
     getCurrentTonality,
     playChord,
@@ -29,18 +28,17 @@ const {
 
 const { CONTROL_VOLUME } = require('../../instrument/constants')
 
-const { startLeap } = require('../leapHandler/index');
-const { playModifiers } = require('../leapHandler/handlers');
-
+// const { startLeap } = require('../leapHandler/index');
+// const { playModifiers } = require('../leapHandler/handlers');
 
 // Initialize leap loop
 let leapOn = false;
-let myArgs = process.argv.slice(2);
-if (myArgs && myArgs[0] === "leap") {
-  console.log('Leap initialized...')
-  startLeap(playModifiers(instrumentFeatures));
-  leapOn = true;
-}
+// let myArgs = process.argv.slice(2);
+// if (myArgs && myArgs[0] === "leap") {
+//   console.log('Leap initialized...')
+//   startLeap(playModifiers(instrumentFeatures));
+//   leapOn = true;
+// }
 
 // Initialize CLI interface
 readline.emitKeypressEvents(process.stdin);
