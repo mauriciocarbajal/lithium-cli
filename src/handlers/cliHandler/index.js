@@ -7,7 +7,6 @@
  */
 
 const readline = require('readline');
-const tdeb = require('throttle-debounce');
 const { getNotePadding } = require('./asciiart');
 const { printScreen, clearScreen, highlight } = require('./asciiart');
 const { mappings } = require('./mappings');
