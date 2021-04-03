@@ -4,7 +4,7 @@ To start, open GarageBand, Logic, or any other DAW software where you can plug a
 
 Next, follow this steps:
 
-1. Install nodejs on your machine. Reference: https://nodejs.org/en/download
+1. Install git and nodejs on your machine. Reference: https://nodejs.org/en/download
 
 2. Open a terminal and run the next commands to clone this repo in your machine:
 ```
