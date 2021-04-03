@@ -21,3 +21,19 @@ npm install
 ```
 npm run cli
 ```
+
+
+### Missing dependencies problems you may find while running step 3
+
+In linux, you may need to install this dependencies first:
+```
+sudo apt-get install make g++ libasound2-dev
+```
+
+In macOS, you may need to run this first:
+```
+xcode-select --install
+```
+
+Also, checking easy midi requirements may help:
+[https://github.com/justinlatimer/node-midi](https://github.com/justinlatimer/node-midi)
