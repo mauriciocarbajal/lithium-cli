@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cli": "node ./src/handlers/cliHandler/index.js"
+    "cli": "node ./src/handlers/cliHandler/index.js",
+    "build": "pkg ."
   },
   "bin": {
     "lithium": "./src/handlers/cliHandler/index.js"

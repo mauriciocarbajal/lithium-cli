@@ -55,7 +55,7 @@ let arpeggio = 0;
 let staccato = false;
 // Splash screen
 clearScreen();
-printScreen(instrumentStatus, "lithium-cli", 4);
+printScreen(instrumentStatus, "Li", 1);
 
 const keyHandler = (str, key) => {
   if (key.ctrl && key.name === 'c') {
@@ -98,7 +98,7 @@ const keyHandler = (str, key) => {
       releasePedal();
       clearScreen();   
       
-      printScreen(instrumentStatus, "lithium-cli", 1);
+      printScreen(instrumentStatus, "Li", 1);
 
     } else if (mappedThing.arpeggio) {
       // ARPEGGIO
