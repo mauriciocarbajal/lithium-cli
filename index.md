@@ -11,7 +11,8 @@ Find full description, examples and videos [here](/lithium-cli/usage).
 
 After downloading the zip file just extract it, and run the binary file in your terminal.
 
-Alternatively, you can clone the code repository and build in your local machine. Follow instructions [here](https://github.com/mauriciocarbajal/lithium-cli)
+Alternatively, you can clone the code repository and build in your local machine.
+Follow instructions [here](https://github.com/mauriciocarbajal/lithium-cli)
 
 ### DAWs
 A music recording program (DAW) is needed to provide the virtual instruments you will play using lithium-cli.
