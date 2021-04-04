@@ -7,11 +7,14 @@ It is a **work in progress**, the current version runs exclusively on a terminal
 
 
 ### Downloads
-- MacOS ([download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-macos.zip) - [screenshot](/lithium-cli/macos.png))
-- Linux ([download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-linux.zip) - [screenshot](/lithium-cli/ubuntu.png))
-- Windows ([download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-windows.zip) - [screenshot](/lithium-cli/windows.png))
 
-After downloading the zip file just extract it, and run the binary file in your terminal.
+| MacOS | [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-macos.zip) | [screenshot](/lithium-cli/macos.png) |
+| :---: | :---: | :---: |
+| Ubuntu | [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-linux.zip) | [screenshot](/lithium-cli/ubuntu.png) |
+| :---: | :---: | :---: |
+| Windows | [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-windows.zip) | [screenshot](/lithium-cli/windows.png) |
+
+After downloading the zip file, just extract it and run the binary file in your terminal.
 
 Alternatively, you can clone the code repository and build in your local machine. Instructions [here](https://github.com/mauriciocarbajal/lithium-cli)
 
