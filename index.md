@@ -1,7 +1,7 @@
 ### About
 This project is meant to provide a simple keyboard-only virtual MIDI controller.
 
-You can easily explore chord changes and melodies, learning about diatonic chords, secondary dominants, modal interchange, and more.
+You can easily explore chord changes and melodies, learning about diatonic chords, secondary dominants, modal interchange and more.
 
 It is a **work in progress**, the current version runs exclusively on a terminal and lacks any visualizations besides colored text.
 
@@ -31,7 +31,7 @@ lithium-win.exe
 
 You can also find direct download links in the last release [v0.1.1](https://github.com/mauriciocarbajal/lithium-cli/releases/tag/v0.1.1).
 
-Alternatively, you can clone the code repository and build in your local machine. Instructions [here](https://github.com/mauriciocarbajal/lithium-cli)
+Alternatively, you can clone the code repository and build it in your local machine. Instructions [here](https://github.com/mauriciocarbajal/lithium-cli).
 
 
 ### Usage
