@@ -8,7 +8,9 @@ You can read more [here](https://github.com/mauriciocarbajal/lithium-cli/wiki).
 - Linux [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-linux.zip)
 - Windows [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-windows.zip)
 
-After downloading the zip file, just extract it and drag the binary file into your terminal.
+After downloading the zip file just extract it, drag the binary file into your terminal and press enter.
+
+Remember that **you also need to open a music recording program that provides the virtual instruments**, such as: GarageBand (MacOS), LMMS (Linux), Ableton Live (multi-platform), etc.
 
 See last releases [here](https://github.com/mauriciocarbajal/lithium-cli/releases).
 
