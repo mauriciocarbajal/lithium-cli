@@ -27,7 +27,7 @@ npm run cli
 
 In linux, you may need to install this dependencies first:
 ```
-sudo apt-get install make g++ libasound2-dev
+sudo apt-get install make g++ libasound2-dev libxkbfile-dev
 ```
 
 In macOS, you may need to run this first:

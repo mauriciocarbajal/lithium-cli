@@ -61,6 +61,7 @@ const mappings_control = {
   [shifted('Digit1')]: { grade: 1, secDom: true },
   [shifted('Digit2')]: { grade: 2, secDom: true },
   [shifted('Digit3')]: { grade: 3, secDom: true },
+  '·': { grade: 3, secDom: true },
   [shifted('Digit4')]: { grade: 4, secDom: true },
   [shifted('Digit5')]: { grade: 5, secDom: true },
   [shifted('Digit6')]: { grade: 6, secDom: true },
