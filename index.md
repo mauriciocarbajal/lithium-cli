@@ -12,7 +12,7 @@ After downloading the zip file just extract it, drag the binary file into your t
 
 Remember that **you also need to open a music recording program that provides the virtual instruments**, such as: GarageBand (MacOS), LMMS (Linux), Ableton Live (multi-platform), etc.
 
-See last releases [here](https://github.com/mauriciocarbajal/lithium-cli/releases).
+See latest releases [here](https://github.com/mauriciocarbajal/lithium-cli/releases).
 
 ### Cloning the repo and building locally
 Follow instructions [here](https://github.com/mauriciocarbajal/lithium-cli).
