@@ -1,5 +1,7 @@
 ### About this project
-This project is meant to provide a CLI virtual MIDI controller that you can use to explore chord changes and melodies, in case you don't have access to a physical MIDI controller.
+This project is meant to provide a virtual MIDI controller that you can use to learn some basic concepts of music harmony by easily exploring chord changes and melodies.
+
+It is a **work in progress**, the current version runs exclusively on a terminal and lacks any visualizations besides colored text.
 
 ### Usage
 Find full description, examples and videos [here](/lithium-cli/usage).
@@ -12,8 +14,10 @@ Find full description, examples and videos [here](/lithium-cli/usage).
 After downloading the zip file just extract it, and run the binary file in your terminal.
 
 Alternatively, you can clone the code repository and build in your local machine.
+
 Follow instructions [here](https://github.com/mauriciocarbajal/lithium-cli)
 
 ### DAWs
 A music recording program (DAW) is needed to provide the virtual instruments you will play using lithium-cli.
+
 Some examples are: GarageBand (MacOS), LMMS (Linux), Ableton Live (multi-platform).
