@@ -8,13 +8,28 @@ It is a **work in progress**, the current version runs exclusively on a terminal
 
 ### Downloads
 
-| Platform | Download | Screenshot |
-| :---: | :---: | :---: |
-| MacOS | [v0.1.1](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-macos.zip) | [link](/lithium-cli/macos.png) |
-| :---: | :---: | :---: |
-| Ubuntu | [v0.1.1](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-linux.zip) | [link](/lithium-cli/ubuntu.png) |
-| :---: | :---: | :---: |
-| Windows | [v0.1.1](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-windows.zip) | [link](/lithium-cli/windows.png) |
+- MacOS ([screenshot](/lithium-cli/macos.png))
+Open a new terminal and run:
+```
+curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34438192 -o lithium-cli-0.1.1-macos.zip -H 'Accept: application/octet-stream';
+unzip lithium-cli-0.1.1-macos.zip;
+./lithium-macos
+```
+
+- Ubuntu ([screenshot](/lithium-cli/ubuntu.png))
+```
+curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34422677 -o lithium-cli-0.1.1-linux.zip -H 'Accept: application/octet-stream';
+unzip lithium-cli-0.1.1-linux.zip;
+./lithium-linux
+```
+
+
+- Windows ([screenshot](/lithium-cli/windows.png))
+```
+curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34423663 -o lithium-cli-0.1.1-windows.zip -H 'Accept: application/octet-stream';
+unzip lithium-cli-0.1.1-windows.zip;
+./lithium-win
+```
 
 After downloading the zip file, just extract it and run the binary file in your terminal.
 
