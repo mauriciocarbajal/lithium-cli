@@ -8,14 +8,6 @@ It is a **work in progress**, the current version runs exclusively on a terminal
 
 ### Downloads
 
-- MacOS ([screenshot](/lithium-cli/macos.png))
-Open a new terminal and run:
-```
-curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34438192 -o lithium-cli-0.1.1-macos.zip -H 'Accept: application/octet-stream';
-unzip lithium-cli-0.1.1-macos.zip;
-./lithium-macos
-```
-
 - Ubuntu ([screenshot](/lithium-cli/ubuntu.png))
 ```
 curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34422677 -o lithium-cli-0.1.1-linux.zip -H 'Accept: application/octet-stream';
@@ -23,15 +15,20 @@ unzip lithium-cli-0.1.1-linux.zip;
 ./lithium-linux
 ```
 
+- MacOS ([screenshot](/lithium-cli/macos.png))
+```
+curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34438192 -o lithium-cli-0.1.1-macos.zip -H 'Accept: application/octet-stream';
+unzip lithium-cli-0.1.1-macos.zip;
+./lithium-macos
+```
 
 - Windows ([screenshot](/lithium-cli/windows.png))
 ```
-curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34439446 -o lithium-cli-0.1.1-win.tar.gz -H 'Accept: application/octet-stream';
+# run in a cmd windows terminal
+curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34439637 -o lithium-cli-0.1.1-win.tar.gz -H 'Accept: application/octet-stream';
 tar -zxvf lithium-cli-0.1.1-win.tar.gz;
 ./lithium-win
 ```
-
-After downloading the zip file, just extract it and run the binary file in your terminal.
 
 Alternatively, you can clone the code repository and build in your local machine. Instructions [here](https://github.com/mauriciocarbajal/lithium-cli)
 
