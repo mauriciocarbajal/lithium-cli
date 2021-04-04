@@ -80,7 +80,6 @@ Now you are all set to play the song above:
 ```
 1  ⇧6  6  4  v  b  5  b  1
 ```
-Video here: [https://vimeo.com/494868069](https://vimeo.com/494868069)
 
 Can you notice the different nature of those chords played when you pressed `v` and `b`?
 
