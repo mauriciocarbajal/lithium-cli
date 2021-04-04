@@ -8,6 +8,8 @@ It is a **work in progress**, the current version runs exclusively on a terminal
 
 ### Downloads
 
+| Platform | | |
+| :---: | :---: | :---: |
 | MacOS | [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-macos.zip) | [screenshot](/lithium-cli/macos.png) |
 | :---: | :---: | :---: |
 | Ubuntu | [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-linux.zip) | [screenshot](/lithium-cli/ubuntu.png) |
