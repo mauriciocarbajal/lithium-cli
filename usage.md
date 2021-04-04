@@ -1,5 +1,3 @@
-## Usage and examples
-
 ### What can you do?
 Besides playing voicings aware chords, you will be able to make your ear familiar with basic music harmony.
 
