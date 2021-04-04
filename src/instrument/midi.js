@@ -8,7 +8,7 @@ class MIDIHandler {
         this.output = new easymidi.Output('lithium-cli', true);
         this.melodyNotes = [];
         this.chordNotes = [];
-        this.staccato = false;
+        this.staccato = true;
     }
 
     toggleStaccato () {

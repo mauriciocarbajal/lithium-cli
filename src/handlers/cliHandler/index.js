@@ -52,7 +52,7 @@ let instrumentStatus = {
 }
 
 let arpeggio = 0;
-let staccato = false;
+let staccato = true;
 // Splash screen
 clearScreen();
 printScreen(instrumentStatus, "Li", 1);
