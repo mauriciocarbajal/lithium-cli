@@ -1,10 +1,10 @@
-## About this project
+### About this project
 This project is meant to provide a CLI virtual MIDI controller that you can use to explore chord changes and melodies, in case you don't have access to a physical MIDI controller.
 
-## Full description, guides and tutorial
-Learn more about the usage and find some examples and videos [here](https://github.com/mauriciocarbajal/lithium-cli/wiki).
+### Full description, guides and tutorial
+Learn more about the usage and find some examples and videos [here](/usage).
 
-## Downloads
+### Downloads
 - MacOS [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-macos.zip)
 - Linux [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-linux.zip)
 - Windows [download](https://github.com/mauriciocarbajal/lithium-cli/releases/download/v0.1.1/lithium-cli-0.1.1-windows.zip)

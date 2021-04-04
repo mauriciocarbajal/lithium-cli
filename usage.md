@@ -1,9 +1,9 @@
-# Usage and examples
+## Usage and examples
 
-## What can you do?
+### What can you do?
 Besides playing voicings aware chords, you will be able to make your ear familiar with basic music harmony.
 
-## How do you use it?
+### How do you use it?
 First, some basic theory: `I IIm IIIm IV V7 VIm VIIØ` are the diatonic chords of a major scale.
 
 For instance, chords for C major scale: `C Dm Em F G7 Am BØ`
@@ -30,7 +30,7 @@ If you are familiarized with things like `IIm-V7-I`, you will find this key map
 
 Use `<` and `>` to change tonality.
 
-## More complex songs...
+### More complex songs...
 Here's where the song "Lithium" from 90s band Nirvana comes to action as an interesting case of study:
 
 Tonality: D major
@@ -48,7 +48,7 @@ C7    <--- bVII7   (V7 borrowed from D minor, modal interchange)
 D     <--- I
 ```
 
-### Secondary dominants
+#### Secondary dominants
 Secondary dominants are the cornerstone of popular music and jazz of the 20th century, Wikipedia says.
 
 To play this kind of chords, simply press shift key for any diatonic chord, and its secondary dominant will be played instead.
@@ -59,7 +59,7 @@ For instance,
 ⇧6 => F#7 chord, which resolves to Bm
 ```
 
-### Modal interchange
+#### Modal interchange
 Modal interchange consists of borrowing chords from other tonalities.
 
 When we're in a major key (such as D major), we can borrow chords from the minor key (from D minor, which is F major)
@@ -76,7 +76,7 @@ n => Dm
 m => EmØ (IIØ)
 ```
 
-### Ready?
+#### Ready?
 Now you are all set to play the song above:
 
 ```
@@ -88,7 +88,7 @@ Can you notice the different nature of those chords played when you pressed `v` 
 
 Borrowing major chords from the minor tonality is reflected on its peculiar melody, which was an unsolved mystery to me in my teen years.
 
-## Adding melodies
+### Adding melodies
 You can play a melody in the keyboard using the `asd` row and the `qwerty` row 🎹:
 ```
  w e   t y u   o p
@@ -99,7 +99,7 @@ The `asd` row has the diatonic scale of the key you're in, so those notes probab
 
 There are some rules here, but instead explore and see how each note go with each chord. What sounds nice to you?
 
-## Thoughts
+### Thoughts
 This weird user interface will help you to think of chords as a function inside a tonality where they belong to.
 
 It was created as a small tool to explore harmony, starting from the very basic `I IV V7 I` progressions. You can explore some harmonic changes that still might be difficult for you to play in your preferred instrument. Hopefully you can find some new musical ideas to chase afterwards.
@@ -107,7 +107,7 @@ It was created as a small tool to explore harmony, starting from the very basic�
 To exit press `ctrl + c`
 
 
-## Example: Georgia on my mind
+### Example: Georgia on my mind
 Take this jazz standard as an example of a not so obvious harmony:
 
 Tonality: G major
