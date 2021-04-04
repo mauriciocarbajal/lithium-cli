@@ -30,6 +30,8 @@ tar -zxvf lithium-cli-0.1.1-win.tar.gz;
 ./lithium-win
 ```
 
+You can also find direct download links in the last release [v0.1.1](https://github.com/mauriciocarbajal/lithium-cli/releases/tag/v0.1.1).
+
 Alternatively, you can clone the code repository and build in your local machine. Instructions [here](https://github.com/mauriciocarbajal/lithium-cli)
 
 
