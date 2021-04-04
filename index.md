@@ -24,9 +24,9 @@ unzip lithium-cli-0.1.1-macos.zip;
 
 - Windows ([screenshot](/lithium-cli/windows.png))
 ```
-curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34440582 -o "lithium-cli-0.1.1-win.zip" -H "Accept: application/octet-stream"
-tar -xf lithium-cli-0.1.1-win.zip
-./lithium-win
+curl -L https://api.github.com/repos/mauriciocarbajal/lithium-cli/releases/assets/34441864 -o "lithium-cli-0.1.1-windows.zip" -H "Accept: application/octet-stream"
+tar -xf lithium-cli-0.1.1-windows.zip
+./lithium-win.exe
 ```
 
 You can also find direct download links in the last release [v0.1.1](https://github.com/mauriciocarbajal/lithium-cli/releases/tag/v0.1.1).
