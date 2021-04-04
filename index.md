@@ -11,7 +11,7 @@ Learn more about the usage and find some examples and videos [here](/usage).
 
 Remember that **you also need to open a music recording program that provides the virtual instruments**, such as: GarageBand (MacOS), LMMS (Linux), Ableton Live (multi-platform), etc. Once you run lithium-cli, your recording program will detect a new input source.
 
-After downloading the zip file just extract it, drag the binary file into your terminal and press enter.
+After downloading the zip file just extract it, and run the binary file in your terminal.
 
 For cloning and building locally in your machine, follow instructions [here](https://github.com/mauriciocarbajal/lithium-cli).
 
