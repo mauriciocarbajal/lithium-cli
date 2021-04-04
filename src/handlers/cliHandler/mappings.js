@@ -93,7 +93,7 @@ const mappings = (key) => {
     ...mappings_control,
   };
 
-  return userMappings[key.name] || userMappings[key.sequence] || {};
+  return userMappings[key.sequence] || userMappings[key.name] || {};
 }
 
 module.exports = { mappings }
