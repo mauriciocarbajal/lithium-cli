@@ -1,6 +1,8 @@
 ### What can you do?
 Besides playing voicings aware chords, you will be able to make your ear familiar with basic music harmony.
 
+<iframe src="https://player.vimeo.com/video/535348722?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="lithium-cli"></iframe>
+
 ### How do you use it?
 First, some basic theory: `I IIm IIIm IV V7 VIm VIIØ` are the diatonic chords of a major scale.
 
@@ -102,25 +104,3 @@ This weird user interface will help you to think of chords as a function inside 
 It was created as a small tool to explore harmony, starting from the very basic `I IV V7 I` progressions. You can explore some harmonic changes that still might be difficult for you to play in your preferred instrument. Hopefully you can find some new musical ideas to chase afterwards.
 
 To exit press `ctrl + c`
-
-
-### Example: Georgia on my mind
-Take this jazz standard as an example of a not so obvious harmony:
-
-Tonality: G major
-```
-1        ⇧6
-Georgia, Georgia
-
-6   ⇧4        4       
-The whole day through
-
-x    b  1         6
-Just an old sweet song
-
-2             5     3(or ⇧z)  ⇧2 
-Keeps Georgia on my mind...
-
-2  5  ⇧1  1
-```
-Video here: [https://vimeo.com/494875964](https://vimeo.com/494875964)
