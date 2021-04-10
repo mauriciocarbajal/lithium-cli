@@ -5,6 +5,8 @@ You can easily explore chord changes and melodies, learning about diatonic chord
 
 It is a **work in progress**, the current version runs exclusively on a terminal and lacks any visualizations besides colored text.
 
+<iframe src="https://player.vimeo.com/video/535348722?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="lithium-cli"></iframe>
+
 
 ### Downloads
 
@@ -32,10 +34,6 @@ lithium-win.exe
 You can also find direct download links in the last release [v0.1.1](https://github.com/mauriciocarbajal/lithium-cli/releases/tag/v0.1.1).
 
 Alternatively, you can clone the code repository and build it in your local machine. Instructions [here](https://github.com/mauriciocarbajal/lithium-cli).
-
-
-### Usage
-Find full description, examples and videos [here](/lithium-cli/usage).
 
 
 ### DAWs
