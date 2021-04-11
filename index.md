@@ -44,4 +44,4 @@ Alternatively, you can clone the code repository and build it in your local mach
 ### DAWs
 A music recording program (DAW) is needed to provide the virtual instruments you will play using lithium-cli.
 
-Some examples are: GarageBand (MacOS), LMMS (Linux), Ableton Live (multi-platform).
+Some examples are: GarageBand (MacOS), LMMS (Linux), Ableton Live, PreSonum (multi-platform).
