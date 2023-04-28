@@ -1,5 +1,5 @@
 ## Overview
-This educational project is aimed at musicians who want to learn music theory, specifically diatonic chords, secondary dominants and modal interchange. The project consists of a virtual MIDI controller that can be accessed and played from the terminal.
+This educational project offers a virtual MIDI controller designed for musicians interested in learning music theory concepts, specifically diatonic chords, secondary dominants, and modal interchange. The project runs directly from the terminal, providing an accessible and interactive learning experience.
 
 Demo: https://mauriciocarbajal.github.io/lithium-cli
 
