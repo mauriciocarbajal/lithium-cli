@@ -1,12 +1,9 @@
 <iframe src="https://player.vimeo.com/video/535348722?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="lithium-cli"></iframe>
 
 ### About
-This project is meant to provide a simple keyboard-only virtual MIDI controller.
+This educational project offers a virtual MIDI controller designed for musicians interested in learning music theory concepts, specifically diatonic chords, secondary dominants, and modal interchange.
 
-You can easily explore chord changes and melodies, learning about diatonic chords, secondary dominants, modal interchange and more.
-
-It is a **work in progress**, the current version runs exclusively on a terminal and lacks any visualizations besides colored text.
-
+The project runs directly from the terminal, and it's a work in progress.
 
 ### Downloads
 
