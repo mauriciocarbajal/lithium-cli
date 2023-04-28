@@ -1,3 +1,6 @@
+## Overview
+This educational project is aimed at musicians who want to learn music theory, specifically diatonic chords, secondary dominants and modal interchange. The project consists of a virtual MIDI controller that can be accessed and played from the terminal.
+
 ## How do I install it?
 
 To start, open GarageBand, Logic, or any other DAW software where you can plug a MIDI keyboard and play sounds.
